@@ -14,14 +14,14 @@ about a company's standing and operations
 
 [Figma Invitation](https://www.figma.com/file/KByBJJhCMzdsvbLa8cuOwI/Untitled?type=design&node-id=0%3A1&mode=design&t=g4tJmtDAfOroKqz4-1)
 
-## Technologies
+## Technologies 🛠
 
 | Description      | Link                                                                                                                          |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | Architecture     | [Reference Architecture](https://resocoder.com/2019/08/27/flutter-tdd-clean-architecture-course-1-explanation-project-structure) |
 | State Management | [Bloc](https://pub.dev/packages/bloc)                                                                                            |
 
-## Project Structure
+## Project Structure 📁
 
 ```
 📁assets // icons, fonts, l10n translations
@@ -47,6 +47,7 @@ about a company's standing and operations
    |__📄main.dart // Starting point. runApp is inside here.
 ```
 
-## License
+## License 📄
 
 MIT License
+
