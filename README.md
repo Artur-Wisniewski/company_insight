@@ -1,4 +1,4 @@
-# Description
+# Description 📃
 
 The 'Company Insight App' allows users to search for companies by symbol (e.g., AAPL,
 MSFT), view a list of companies they're interested in, and delve into detailes of each
@@ -6,15 +6,47 @@ company. This app aims to provide valuable information to users, including finan
 market presence, enabling them to make informed decisions or simply satisfy their curiosity
 about a company's standing and operations
 
-## Getting Started
+## App Preview 🎬
 
-This project is a starting point for a Flutter application.
+//TODO Video here
 
-A few resources to get you started if this is your first Flutter project:
+## Design 🎨
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+[Figma Invitation](https://www.figma.com/file/KByBJJhCMzdsvbLa8cuOwI/Untitled?type=design&node-id=0%3A1&mode=design&t=g4tJmtDAfOroKqz4-1)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Technologies
+
+| Description      | Link                                                                                                                          |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Architecture     | [Reference Architecture](https://resocoder.com/2019/08/27/flutter-tdd-clean-architecture-course-1-explanation-project-structure) |
+| State Management | [Bloc](https://pub.dev/packages/bloc)                                                                                            |
+
+## Project Structure
+
+```
+📁assets // icons, fonts, l10n translations
+|  
+|
+📁lib
+   |
+   |__📁core
+   |	|__ 📁animation // page transition
+   |	|__ 📁constants
+   |	|__ 📁theme // define themes & and colors
+   |	|__ 📁widgets // widgets that are used in multiple screens
+   |
+   |__📁generated // Generated l10n translations
+   |
+   |__📁Setup
+   |        |__📄dio.dart
+   |        |__📄router.dart // go_router settings
+   |        |__📄injectable.dart // Injectable configuration file
+   |        |__📄injectable.config.dart // Generated injectable configuration file
+   |        |__📄start_app.dart // Main widget attached to screen. You can find here initial setup for themening, routing, internationalization.
+   |
+   |__📄main.dart // Starting point. runApp is inside here.
+```
+
+## License
+
+MIT License
