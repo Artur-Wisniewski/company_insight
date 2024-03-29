@@ -16,8 +16,9 @@ about a company's standing and operations
 
 ## Technologies 🛠
 
-| Description      | Link                                                                                                                          |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+
+| Description      | Link                                                                                                                             |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | Architecture     | [Reference Architecture](https://resocoder.com/2019/08/27/flutter-tdd-clean-architecture-course-1-explanation-project-structure) |
 | State Management | [Bloc](https://pub.dev/packages/bloc)                                                                                            |
 
@@ -50,4 +51,3 @@ about a company's standing and operations
 ## License 📄
 
 MIT License
-
