@@ -45,5 +45,13 @@ dev_dependencies:
 flutter:
   generate: true
   uses-material-design: true
+
+  assets:
+    - assets/icons/
+    - assets/fonts/
+
 flutter_intl:
   enabled: true
+  class_name: L10n
+  arb_dir: assets/l10n
+  output_dir: lib/translations
