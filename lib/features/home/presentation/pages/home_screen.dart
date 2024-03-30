@@ -1,3 +1,4 @@
+import 'package:company_insight_app/core/styles/gaps.dart';
 import 'package:company_insight_app/core/styles/paddings.dart';
 import 'package:company_insight_app/core/widgets/background.dart';
 import 'package:company_insight_app/core/widgets/search_bar.dart';
@@ -23,19 +24,28 @@ class _HomeScreenState extends State<HomeScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: Paddings.extraLargeVertical,
+                padding: Paddings.extraLargeTop,
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Padding(
-                      padding: Paddings.largeHorizontal,
-                      child: Text(L10n.current.helloUser('Artur'), style: Theme.of(context).textTheme.displaySmall),
+                    Flexible(
+                      child: Padding(
+                        padding: Paddings.largeHorizontal,
+                        child: Text(L10n.current.helloUser('Artur'),
+                            style: Theme.of(context).textTheme.displaySmall),
+                      ),
                     ),
-                    const Flexible(child: AppSearchBar()),
+                    Gaps.large,
+                    const AppSearchBar(),
                   ],
                 ),
+              ),
+              Gaps.medium,
+              Padding(
+                padding: Paddings.largeHorizontal,
+                child: Text(L10n.current.findCompanyYouAreInterested, style: Theme.of(context).textTheme.titleMedium),
               ),
             ],
           ),
