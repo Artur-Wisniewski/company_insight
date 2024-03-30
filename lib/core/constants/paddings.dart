@@ -6,6 +6,6 @@ class Paddings {
   static const double large = 24.0;
   static const double extraLarge = 36.0;
 
-  static const EdgeInsets largeHorizontalExtraLargeVertical =
-      EdgeInsets.symmetric(horizontal: large, vertical: extraLarge);
+  static const EdgeInsets extraLargeVertical = EdgeInsets.symmetric(vertical: extraLarge);
+  static const EdgeInsets largeHorizontal = EdgeInsets.symmetric(horizontal: large);
 }
