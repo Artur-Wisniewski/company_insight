@@ -1,4 +1,4 @@
-import 'package:company_insight_app/core/widgets/app_bottom_navigation_bar/widgets/scaffold_with_bottom_bar.dart';
+import 'package:company_insight_app/core/widgets/scaffold_with_bottom_bar.dart';
 import 'package:company_insight_app/features/home/presentation/pages/home_screen.dart';
 import 'package:company_insight_app/features/search_companies/presentation/pages/search_companies_view.dart';
 import 'package:flutter/material.dart';

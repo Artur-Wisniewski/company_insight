@@ -1,12 +1,19 @@
 import 'package:company_insight_app/core/styles/styles.dart';
-import 'package:company_insight_app/core/widgets/app_bottom_navigation_bar/widgets/app_back_button.dart';
+import 'package:company_insight_app/core/widgets/app_back_button.dart';
 import 'package:company_insight_app/core/widgets/background.dart';
 import 'package:company_insight_app/core/widgets/search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 
-class SearchCompaniesView extends StatelessWidget {
+class SearchCompaniesView extends StatefulWidget {
   const SearchCompaniesView({super.key});
+
+  @override
+  State<SearchCompaniesView> createState() => _SearchCompaniesViewState();
+}
+
+class _SearchCompaniesViewState extends State<SearchCompaniesView> with TickerProviderStateMixin {
+  late final AnimationController animationController = AnimationController(vsync: this);
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +30,7 @@ class SearchCompaniesView extends StatelessWidget {
                   Padding(
                     padding: Paddings.smallLeft,
                     child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         AppBackButton(
                           onPressed: () {
@@ -32,6 +40,9 @@ class SearchCompaniesView extends StatelessWidget {
                         const Flexible(
                           child: AppSearchBar(
                             isExpanded: true,
+                            isReadOnly: false,
+                            animationDelay: Duration.zero,
+                            animationDuration: Duration.zero,
                           ),
                         ),
                       ],

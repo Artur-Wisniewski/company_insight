@@ -9,14 +9,23 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-class AppBottomNavigationBar extends StatelessWidget {
+class AppBottomNavigationBar extends StatefulWidget {
   const AppBottomNavigationBar({super.key});
 
+  @override
+  State<AppBottomNavigationBar> createState() => _AppBottomNavigationBarState();
+}
+
+class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> with SingleTickerProviderStateMixin {
   Duration get showItemInterval => 120.ms;
 
   Duration get fadeInItemDuration => 650.ms;
 
   Duration get slideInItemDuration => 500.ms;
+
+  Duration get exitAnimationDuration => 400.ms;
+
+  late final AnimationController _exitAnimationController = AnimationController(vsync: this);
 
   void _onHomePressed(BuildContext context, BottomBarNavigationState state) {
     if (state.currentItem == BottomBarItems.home) return;
@@ -32,7 +41,14 @@ class AppBottomNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<BottomNavigationBarCubit, BottomBarNavigationState>(
+    return BlocConsumer<BottomNavigationBarCubit, BottomBarNavigationState>(
+      listener: (context, state) {
+        if (state.isNavigatedOutsideShell) {
+          _exitAnimationController.forward();
+        } else {
+          _exitAnimationController.reverse();
+        }
+      },
       builder: (context, state) {
         return SafeArea(
           child: Container(
@@ -91,7 +107,19 @@ class AppBottomNavigationBar extends StatelessWidget {
                     duration: slideInItemDuration,
                   ),
             ),
-          ),
+          )
+              .animate(
+                controller: _exitAnimationController,
+                autoPlay: false,
+              )
+              .slideY(
+                begin: 0,
+                end: 0.5,
+                duration: exitAnimationDuration,
+              )
+              .fadeOut(
+                duration: exitAnimationDuration,
+              ),
         );
       },
     );

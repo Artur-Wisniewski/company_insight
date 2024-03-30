@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 enum Corners {
   topLeft,
@@ -8,10 +9,20 @@ enum Corners {
 }
 
 class BackgroundBlur extends StatelessWidget {
-  const BackgroundBlur({super.key, required this.child, this.corner = Corners.topRight});
+  const BackgroundBlur({
+    super.key,
+    required this.child,
+    this.corner = Corners.topRight,
+    this.animationController,
+    this.duration,
+    this.delay,
+  });
 
   final Widget child;
   final Corners corner;
+  final AnimationController? animationController;
+  final Duration? duration;
+  final Duration? delay;
 
   double get primaryBlurRadius => 1300;
 
@@ -23,21 +34,26 @@ class BackgroundBlur extends StatelessWidget {
     double getTopPosition() => -primaryBlurRadius / 2 + 30;
     double getRightPosition() => -primaryBlurRadius / 2 + 30;
     double getBottomPosition() => MediaQuery.of(context).size.height - primaryBlurRadius / 2 - 30;
+    double animationStartY;
 
     switch (corner) {
       case Corners.topLeft:
+        animationStartY = -0.3;
         shiftFromRight = getLeftPosition();
         shiftFromTop = getTopPosition();
         break;
       case Corners.topRight:
+        animationStartY = -0.3;
         shiftFromRight = getRightPosition();
         shiftFromTop = getTopPosition();
         break;
       case Corners.bottomLeft:
+        animationStartY = 0.3;
         shiftFromRight = getLeftPosition();
         shiftFromTop = getBottomPosition();
         break;
       case Corners.bottomRight:
+        animationStartY = 0.3;
         shiftFromRight = getRightPosition();
         shiftFromTop = getBottomPosition();
         break;
@@ -68,7 +84,19 @@ class BackgroundBlur extends StatelessWidget {
               ),
             ),
           ),
-        ),
+        )
+            .animate(
+              delay: delay,
+              controller: animationController,
+            )
+            .fadeIn(
+              duration: duration ?? Durations.short4,
+            )
+            .slideY(
+              begin: animationStartY,
+              end: 0,
+              duration: duration ?? Durations.short4,
+            ),
         Container(),
         child,
       ],
