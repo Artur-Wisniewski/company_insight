@@ -45,6 +45,8 @@ dev_dependencies:
   injectable_generator: ^2.4.1
   json_serializable: ^6.7.1
   floor_generator: ^1.4.2
+  flutter_launcher_icons: ^0.13.1
+  flutter_native_splash: ^2.4.0
 
 flutter:
   generate: true
@@ -81,3 +83,12 @@ flutter_intl:
   class_name: L10n
   arb_dir: assets/l10n
   output_dir: lib/translations
+
+flutter_native_splash:
+  color: "#020403"
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icons/icon.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
