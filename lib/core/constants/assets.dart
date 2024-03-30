@@ -6,7 +6,7 @@ class AssetInfo {
 }
 
 class SvgAssets {
-  static const _imageDirectoryPath = 'assets/images';
+  static const _imageDirectoryPath = 'assets/icons';
 
   static const bookmarkOutline =
       AssetInfo(path: '$_imageDirectoryPath/bookmark_outline.svg', semanticsLabel: 'bookmark fill out icon');

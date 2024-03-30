@@ -1,5 +1,6 @@
-import 'package:company_insight_app/core/constants/paddings.dart';
+import 'package:company_insight_app/core/styles/paddings.dart';
 import 'package:company_insight_app/core/widgets/background.dart';
+import 'package:company_insight_app/core/widgets/search_bar.dart';
 import 'package:company_insight_app/translations/l10n.dart';
 import 'package:flutter/material.dart';
 
@@ -21,13 +22,20 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                children: [
-                  Padding(
-                    padding: Paddings.largeHorizontalExtraLargeVertical,
-                    child: Text(L10n.current.helloUser('Artur'), style: Theme.of(context).textTheme.displaySmall),
-                  ),
-                ],
+              Padding(
+                padding: Paddings.extraLargeVertical,
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: Paddings.largeHorizontal,
+                      child: Text(L10n.current.helloUser('Artur'), style: Theme.of(context).textTheme.displaySmall),
+                    ),
+                    const Flexible(child: AppSearchBar()),
+                  ],
+                ),
               ),
             ],
           ),
