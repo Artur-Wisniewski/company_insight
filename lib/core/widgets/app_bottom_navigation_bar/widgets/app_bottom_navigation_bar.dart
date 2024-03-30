@@ -39,7 +39,7 @@ class AppBottomNavigationBar extends StatelessWidget {
               children: [
                 IconButton(
                   onPressed: () => _onHomePressed(context, state),
-                  padding: Paddings.largeAll,
+                  padding: Paddings.mediumAll,
                   icon: AnimatedBottomBarIcon(
                     isSelected: state.currentItem == BottomBarItems.home,
                     outlineIcon: SvgAssets.homeOutline,
@@ -48,9 +48,9 @@ class AppBottomNavigationBar extends StatelessWidget {
                 ),
                 IconButton(
                   onPressed: () => _onFavoriteCompaniesPressed(context, state),
-                  padding: Paddings.smallAll,
+                  padding: EdgeInsets.zero,
                   icon: Container(
-                    padding: Paddings.smallAll,
+                    padding: Paddings.mediumAll,
                     decoration: BoxDecoration(
                       color: Theme.of(context).colorScheme.primary,
                       shape: BoxShape.circle,
@@ -64,7 +64,7 @@ class AppBottomNavigationBar extends StatelessWidget {
                 ),
                 IconButton(
                   onPressed: () {},
-                  padding: Paddings.largeAll,
+                  padding: Paddings.mediumAll,
                   icon: AnimatedBottomBarIcon(
                     isSelected: state.currentItem == BottomBarItems.profile,
                     outlineIcon: SvgAssets.profileOutline,
