@@ -11,7 +11,10 @@ class HomeSubtitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: Paddings.largeHorizontal,
-      child: Text(L10n.current.helloUser(name), style: Theme.of(context).textTheme.displaySmall),
+      child: Text(
+        L10n.current.helloUser(name),
+        style: Theme.of(context).textTheme.displaySmall,
+      ),
     );
   }
 }

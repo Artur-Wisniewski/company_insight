@@ -9,7 +9,10 @@ class HomeTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: Paddings.largeHorizontal,
-      child: Text(L10n.current.findCompanyYouAreInterested, style: Theme.of(context).textTheme.titleMedium),
+      child: Text(
+        L10n.current.findCompanyYouAreInterested,
+        style: Theme.of(context).textTheme.titleMedium,
+      ),
     );
   }
 }

@@ -5,11 +5,18 @@ import 'package:company_insight_app/core/widgets/app_bottom_navigation_bar/manag
 import 'package:company_insight_app/core/widgets/app_bottom_navigation_bar/widgets/animated_bottom_bar_icon.dart';
 import 'package:company_insight_app/setup/router.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class AppBottomNavigationBar extends StatelessWidget {
   const AppBottomNavigationBar({super.key});
+
+  Duration get showItemInterval => 120.ms;
+
+  Duration get fadeInItemDuration => 650.ms;
+
+  Duration get slideInItemDuration => 500.ms;
 
   void _onHomePressed(BuildContext context, BottomBarNavigationState state) {
     if (state.currentItem == BottomBarItems.home) return;
@@ -71,7 +78,18 @@ class AppBottomNavigationBar extends StatelessWidget {
                     fillIcon: SvgAssets.profileFill,
                   ),
                 ),
-              ],
+              ]
+                  .animate(
+                    interval: showItemInterval,
+                  )
+                  .fadeIn(
+                    duration: fadeInItemDuration,
+                  )
+                  .slideY(
+                    begin: 0.7,
+                    end: 0,
+                    duration: slideInItemDuration,
+                  ),
             ),
           ),
         );
