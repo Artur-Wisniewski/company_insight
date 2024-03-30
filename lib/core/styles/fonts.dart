@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class AppFontFamilies {
   static const String novatica = 'Novatica';
-  static const String euclidCircularB = 'Euclid Circular B';
+  static const String euclidCircularB = 'EuclidCircularB';
 }
 
 class AppFonts {
