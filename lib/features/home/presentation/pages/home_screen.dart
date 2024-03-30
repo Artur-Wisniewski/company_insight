@@ -4,7 +4,9 @@ import 'package:company_insight_app/core/widgets/background.dart';
 import 'package:company_insight_app/core/widgets/search_bar.dart';
 import 'package:company_insight_app/features/home/presentation/widgets/home_subtitle.dart';
 import 'package:company_insight_app/features/home/presentation/widgets/home_title.dart';
+import 'package:company_insight_app/setup/router.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -16,7 +18,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return  Scaffold(
       body: BackgroundBlur(
         child: SafeArea(
           child: Column(
@@ -28,16 +30,20 @@ class _HomeScreenState extends State<HomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Flexible(
+                    const Flexible(
                       child: HomeSubtitle(name: 'Artur'),
                     ),
                     Gaps.large,
-                    AppSearchBar(),
+                    AppSearchBar(
+                      onPressedWhenShrinked: () {
+                        context.push(RoutesPaths.searchCompanies);
+                      },
+                    ),
                   ],
                 ),
               ),
               Gaps.medium,
-              HomeTitle(),
+              const HomeTitle(),
             ],
           ),
         ),

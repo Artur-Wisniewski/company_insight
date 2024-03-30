@@ -82,6 +82,7 @@ class AppFonts {
         color: ColorPalette.white,
         fontFamily: AppFontFamilies.novatica,
         fontSize: 14.0,
+        height: 1.7,
         fontWeight: regular,
       );
 
