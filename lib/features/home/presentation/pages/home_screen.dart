@@ -16,8 +16,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: BackgroundBlur(
+      body: BackgroundBlur(
+        child: SafeArea(
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -33,8 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Flexible(
                       child: Padding(
                         padding: Paddings.largeHorizontal,
-                        child: Text(L10n.current.helloUser('Artur'),
-                            style: Theme.of(context).textTheme.displaySmall),
+                        child: Text(L10n.current.helloUser('Artur'), style: Theme.of(context).textTheme.displaySmall),
                       ),
                     ),
                     Gaps.large,
