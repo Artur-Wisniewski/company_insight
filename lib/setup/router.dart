@@ -1,4 +1,4 @@
-import 'package:company_insight_app/core/widgets/app_bottom_navigation_bar.dart';
+import 'package:company_insight_app/core/widgets/app_bottom_navigation_bar/widgets/app_bottom_navigation_bar.dart';
 import 'package:company_insight_app/features/home/presentation/pages/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';

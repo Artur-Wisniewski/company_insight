@@ -28,7 +28,7 @@ class _AppSearchBarState extends State<AppSearchBar> {
           SvgAssets.search.path,
           semanticsLabel: SvgAssets.search.semanticsLabel,
           colorFilter: ColorFilter.mode(
-            Theme.of(context).iconTheme.color!,
+            Theme.of(context).colorScheme.onSecondary,
             BlendMode.srcIn,
           ),
         ),

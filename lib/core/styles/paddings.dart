@@ -8,7 +8,9 @@ class Paddings {
   static const double extraLarge = 36.0;
 
   static const EdgeInsets smallAll = EdgeInsets.all(small);
-  static const EdgeInsets extraLargeTop = EdgeInsets.only(top: extraLarge);
+  static const EdgeInsets largeAll = EdgeInsets.all(large);
   static const EdgeInsets extraLargeVertical = EdgeInsets.symmetric(vertical: extraLarge);
   static const EdgeInsets largeHorizontal = EdgeInsets.symmetric(horizontal: large);
+  static const EdgeInsets largeHorizontalSmallVertical = EdgeInsets.symmetric(horizontal: large, vertical: small);
+  static const EdgeInsets extraLargeTop = EdgeInsets.only(top: extraLarge);
 }

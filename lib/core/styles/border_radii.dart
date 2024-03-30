@@ -9,4 +9,9 @@ class BorderRadii {
     topLeft: Radius.circular(BorderRadii.large),
     bottomLeft: Radius.circular(BorderRadii.large),
   );
+
+  static const BorderRadius largeTop = BorderRadius.only(
+    topLeft: Radius.circular(BorderRadii.large),
+    topRight: Radius.circular(BorderRadii.large),
+  );
 }

@@ -23,7 +23,7 @@ ThemeData get darkTheme {
     cardColor: ColorPalette.darkGrey,
     dialogBackgroundColor: ColorPalette.violet,
     unselectedWidgetColor: ColorPalette.grey,
-    iconTheme: const IconThemeData(color: ColorPalette.black),
+    iconTheme: const IconThemeData(color: ColorPalette.white),
     textTheme: const TextTheme().copyWith(
       displayLarge: fonts.h1,
       displayMedium: fonts.h2,
