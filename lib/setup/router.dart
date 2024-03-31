@@ -1,5 +1,7 @@
 import 'package:company_insight_app/core/widgets/scaffold_with_bottom_bar.dart';
 import 'package:company_insight_app/features/home/presentation/pages/home_screen.dart';
+import 'package:company_insight_app/features/search_companies/domain/entities/company_overview.dart';
+import 'package:company_insight_app/features/search_companies/presentation/pages/company_overview_screen.dart';
 import 'package:company_insight_app/features/search_companies/presentation/pages/favourites_companies_view.dart';
 import 'package:company_insight_app/features/search_companies/presentation/pages/search_companies_view.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +11,7 @@ class RoutesPaths {
   static const home = '/';
   static const searchCompanies = '/search-companies';
   static const favoriteCompanies = '/favorite-companies';
-  static const companyDetails = '/company-details';
+  static const companyOverview = '/company-overview';
 }
 
 final router = GoRouter(
@@ -45,10 +47,10 @@ final router = GoRouter(
       ),
     ),
     GoRoute(
-      path: RoutesPaths.companyDetails,
+      path: RoutesPaths.companyOverview,
       pageBuilder: (context, state) => NoTransitionPage<void>(
         key: state.pageKey,
-        child: const SizedBox(),
+        child: CompanyOverviewScreen(companyPreview: state.extra as CompanyPreviewEntity),
       ),
     ),
   ],

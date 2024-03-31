@@ -6,6 +6,7 @@ import 'package:company_insight_app/core/widgets/background.dart';
 import 'package:company_insight_app/core/widgets/search_bar.dart';
 import 'package:company_insight_app/features/home/presentation/widgets/home_subtitle.dart';
 import 'package:company_insight_app/features/home/presentation/widgets/home_title.dart';
+import 'package:company_insight_app/setup/injectable.dart';
 import 'package:company_insight_app/setup/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -27,13 +28,13 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   Future<void> _onSearchPressed() async {
     isExpanded.value = true;
     _animationController.reverse();
-    context.read<BottomNavigationBarCubit>().markNavigateOutsideShell(true);
+    getIt.get<BottomNavigationBarCubit>().markNavigateOutsideShell(true);
     await Future.delayed(Durations.medium2);
     if (mounted) {
       await context.push(RoutesPaths.searchCompanies);
     }
     if (mounted) {
-      context.read<BottomNavigationBarCubit>().markNavigateOutsideShell(false);
+      getIt.get<BottomNavigationBarCubit>().markNavigateOutsideShell(false);
     }
     isExpanded.value = false;
     _animationController.forward();

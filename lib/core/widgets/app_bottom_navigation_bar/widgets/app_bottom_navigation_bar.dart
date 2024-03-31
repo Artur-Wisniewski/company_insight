@@ -3,6 +3,7 @@ import 'package:company_insight_app/core/styles/border_radii.dart';
 import 'package:company_insight_app/core/styles/paddings.dart';
 import 'package:company_insight_app/core/widgets/app_bottom_navigation_bar/manager/bottom_navigation_bar_cubit.dart';
 import 'package:company_insight_app/core/widgets/app_animated_icon.dart';
+import 'package:company_insight_app/setup/injectable.dart';
 import 'package:company_insight_app/setup/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -29,19 +30,20 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> with Si
 
   void _onHomePressed(BuildContext context, BottomBarNavigationState state) {
     if (state.currentItem == BottomBarItems.home) return;
-    context.read<BottomNavigationBarCubit>().changeItem(BottomBarItems.home);
+    getIt.get<BottomNavigationBarCubit>().changeItem(BottomBarItems.home);
     context.go(RoutesPaths.home);
   }
 
   void _onFavoriteCompaniesPressed(BuildContext context, BottomBarNavigationState state) {
     if (state.currentItem == BottomBarItems.favorites) return;
-    context.read<BottomNavigationBarCubit>().changeItem(BottomBarItems.favorites);
+    getIt.get<BottomNavigationBarCubit>().changeItem(BottomBarItems.favorites);
     context.go(RoutesPaths.favoriteCompanies);
   }
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<BottomNavigationBarCubit, BottomBarNavigationState>(
+      bloc: getIt.get<BottomNavigationBarCubit>(),
       listener: (context, state) {
         if (state.isNavigatedOutsideShell) {
           _exitAnimationController.forward();

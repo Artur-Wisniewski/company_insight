@@ -21,8 +21,10 @@ class FavoriteCompaniesCubit extends Cubit<FavoriteCompaniesState> {
   final SaveCompanyPreviewUseCase _saveCompanyPreviewUseCase;
 
   Future<void> getCompanies() async {
+    print('getCompanies');
     emit(FavoriteCompaniesLoading());
     final savedCompanyPreviews = await _getSavedCompanyPreviewsUseCase.call();
+    print('savedCompanyPreviews: ${savedCompanyPreviews.data?.length}');
     emit(FavoriteCompaniesDone(companies: savedCompanyPreviews.data!));
   }
 
