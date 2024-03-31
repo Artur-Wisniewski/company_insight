@@ -1,5 +1,6 @@
 import 'package:company_insight_app/core/widgets/scaffold_with_bottom_bar.dart';
 import 'package:company_insight_app/features/home/presentation/pages/home_screen.dart';
+import 'package:company_insight_app/features/search_companies/presentation/pages/favourites_companies_view.dart';
 import 'package:company_insight_app/features/search_companies/presentation/pages/search_companies_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -31,7 +32,7 @@ final router = GoRouter(
           path: RoutesPaths.favoriteCompanies,
           pageBuilder: (context, state) => NoTransitionPage<void>(
             key: state.pageKey,
-            child: const SizedBox(),
+            child: const FavouritesCompaniesView(),
           ),
         ),
       ],

@@ -25,7 +25,7 @@ class HomeTitle extends StatelessWidget {
       )
           .animate(
             controller: animationController,
-            delay: Durations.short2,
+            autoPlay: false,
           )
           .fadeIn(
             duration: Durations.short4,

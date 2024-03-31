@@ -28,7 +28,7 @@ class HomeSubtitle extends StatelessWidget {
     )
         .animate(
           controller: animationController,
-          delay: delay,
+          autoPlay: false,
         )
         .fadeIn(
           duration: duration,
