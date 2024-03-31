@@ -47,11 +47,7 @@ final router = GoRouter(
       ),
     ),
     GoRoute(
-      path: RoutesPaths.companyOverview,
-      pageBuilder: (context, state) => NoTransitionPage<void>(
-        key: state.pageKey,
-        child: CompanyOverviewScreen(companyPreview: state.extra as CompanyPreviewEntity),
-      ),
-    ),
+        path: RoutesPaths.companyOverview,
+        builder: (context, state) => CompanyOverviewScreen(companyPreview: state.extra as CompanyPreviewEntity)),
   ],
 );

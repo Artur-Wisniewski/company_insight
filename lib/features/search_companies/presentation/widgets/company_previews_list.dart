@@ -3,8 +3,10 @@ import 'package:company_insight_app/core/styles/paddings.dart';
 import 'package:company_insight_app/core/widgets/snackbars.dart';
 import 'package:company_insight_app/features/search_companies/domain/entities/company_overview.dart';
 import 'package:company_insight_app/features/search_companies/presentation/widgets/loading_preview_card.dart';
+import 'package:company_insight_app/setup/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../manager/favorite_companies/favorite_companies_cubit.dart';
 import '../manager/search_company_previews/search_company_previews_bloc.dart';
@@ -74,6 +76,10 @@ class CompanyPreviewsList extends StatelessWidget {
     }
   }
 
+  void onCardTap(BuildContext context, {required CompanyPreviewEntity companyPreview}) {
+    context.push(RoutesPaths.companyOverview, extra: companyPreview);
+  }
+
   Widget _buildCompanyPreviewCardElement(int index) {
     final companyPreview = state.companyPreviews[index];
     return BlocBuilder<FavoriteCompaniesCubit, FavoriteCompaniesState>(
@@ -85,6 +91,7 @@ class CompanyPreviewsList extends StatelessWidget {
             context: context,
             companyPreview: companyPreview,
           ),
+          onTap: () => onCardTap(context, companyPreview: companyPreview),
           name: companyPreview.name ?? '',
           symbol: companyPreview.symbol ?? '',
           isSelected: getIsSelected(

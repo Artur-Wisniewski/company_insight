@@ -14,7 +14,7 @@ class InfoBlock extends StatelessWidget {
     return SingleChildScrollView(
       child: Center(
         child: Padding(
-          padding: Paddings.largeAll,
+          padding: Paddings.extraLargeAll,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,

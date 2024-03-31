@@ -92,6 +92,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "trySomethingElse":
             MessageLookupByLibrary.simpleMessage("Try something else"),
         "typeHint": MessageLookupByLibrary.simpleMessage(
-            "Type name or symbol of the company you are looking for")
+            "Type name or symbol of the company you are looking for"),
+        "youCanFindCompaniesInHomeScreen": MessageLookupByLibrary.simpleMessage(
+            "You can find and add companies to your list in home screen using search"),
+        "yourListIsEmpty":
+            MessageLookupByLibrary.simpleMessage("Your list is empty")
       };
 }

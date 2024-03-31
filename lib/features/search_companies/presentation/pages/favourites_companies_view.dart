@@ -20,7 +20,6 @@ class FavouritesCompaniesView extends StatefulWidget {
 class _FavouritesCompaniesViewState extends State<FavouritesCompaniesView> {
   @override
   void didChangeDependencies() {
-    print('didChangeDependencies');
     getIt.get<FavoriteCompaniesCubit>().getCompanies();
     super.didChangeDependencies();
   }
@@ -28,11 +27,13 @@ class _FavouritesCompaniesViewState extends State<FavouritesCompaniesView> {
   @override
   Widget build(BuildContext context) {
     // PopScope is bugged on go_router version: 13.X.X, will be fixed soon https://github.com/flutter/flutter/issues/138737
-    return BackButtonListener(
-      onBackButtonPressed: () async {
-        getIt.get<BottomNavigationBarCubit>().changeItem(BottomBarItems.home);
-        context.go(RoutesPaths.home);
-        return true;
+    return PopScope(
+      canPop: false,
+      onPopInvoked: (didPop) {
+        if (!didPop) {
+          getIt<BottomNavigationBarCubit>().changeItem(BottomBarItems.home);
+          context.go(RoutesPaths.home);
+        }
       },
       child: const BackgroundBlur(
         corner: Corners.topLeft,

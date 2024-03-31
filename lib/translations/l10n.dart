@@ -479,6 +479,26 @@ class L10n {
       args: [],
     );
   }
+
+  /// `Your list is empty`
+  String get yourListIsEmpty {
+    return Intl.message(
+      'Your list is empty',
+      name: 'yourListIsEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You can find and add companies to your list in home screen using search`
+  String get youCanFindCompaniesInHomeScreen {
+    return Intl.message(
+      'You can find and add companies to your list in home screen using search',
+      name: 'youCanFindCompaniesInHomeScreen',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<L10n> {

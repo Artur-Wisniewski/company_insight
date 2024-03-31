@@ -4,10 +4,15 @@ import 'package:company_insight_app/core/widgets/snackbars.dart';
 import 'package:company_insight_app/features/search_companies/domain/entities/company_overview.dart';
 import 'package:company_insight_app/features/search_companies/presentation/manager/favorite_companies/favorite_companies_cubit.dart';
 import 'package:company_insight_app/features/search_companies/presentation/widgets/company_preview_card.dart';
+import 'package:company_insight_app/features/search_companies/presentation/widgets/something_went_wrong_info_block.dart';
 import 'package:company_insight_app/setup/injectable.dart';
+import 'package:company_insight_app/setup/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+
+import 'favourites_companies_empty_info.dart';
 
 class FavouritesCompaniesList extends StatelessWidget {
   const FavouritesCompaniesList({super.key});
@@ -17,22 +22,30 @@ class FavouritesCompaniesList extends StatelessWidget {
     return BlocBuilder<FavoriteCompaniesCubit, FavoriteCompaniesState>(
       bloc: getIt.get(),
       builder: (context, state) {
+        if (state is FavoriteCompaniesDone && state.companies.isEmpty) {
+          return const FavouritesCompaniesEmptyInfo();
+        }
         return ListView.separated(
           padding: Paddings.largeAllExceptTop,
           itemBuilder: (context, index) {
             if (state is FavoriteCompaniesDone) {
               final company = state.companies[index];
               return CompanyPreviewCard(
-                onBookMarkButtonPressed: () => onBookMarkButtonPressed(context, company),
+                onBookMarkButtonPressed: () => _onBookMarkButtonPressed(context, company),
                 name: company.name ?? '',
                 symbol: company.symbol ?? '',
                 isSelected: true,
+                onTap: () => onCardTap(context, companyPreview: company),
               );
             }
+            if (state is FavoriteCompaniesFailure) {
+              return const SomethingWentWrongInfoBlock();
+            }
+
             return const SizedBox();
           },
           separatorBuilder: (context, index) => Gaps.medium,
-          itemCount: getItemCount(state),
+          itemCount: _getItemCount(state),
         )
             .animate()
             .fadeIn(
@@ -47,12 +60,16 @@ class FavouritesCompaniesList extends StatelessWidget {
     );
   }
 
-  void onBookMarkButtonPressed(BuildContext context, CompanyPreviewEntity companyPreview) {
+  void onCardTap(BuildContext context, {required CompanyPreviewEntity companyPreview}) {
+    context.push(RoutesPaths.companyOverview, extra: companyPreview);
+  }
+
+  void _onBookMarkButtonPressed(BuildContext context, CompanyPreviewEntity companyPreview) {
     getIt.get<FavoriteCompaniesCubit>().toggleFavorite(companyPreview);
     getRemoveFromFavoritesSnackbar(context).show(context);
   }
 
-  int getItemCount(FavoriteCompaniesState state) {
+  int _getItemCount(FavoriteCompaniesState state) {
     if (state is FavoriteCompaniesDone) {
       return state.companies.length;
     }

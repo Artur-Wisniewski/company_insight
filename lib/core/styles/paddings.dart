@@ -11,6 +11,7 @@ class Paddings {
   static const EdgeInsets smallAll = EdgeInsets.all(small);
   static const EdgeInsets mediumAll = EdgeInsets.all(medium);
   static const EdgeInsets largeAll = EdgeInsets.all(large);
+  static const EdgeInsets extraLargeAll = EdgeInsets.all(extraLarge);
   static const EdgeInsets largeAllExceptTop = EdgeInsets.fromLTRB(large, 0, large, large);
   static const EdgeInsets extraLargeVertical = EdgeInsets.symmetric(vertical: extraLarge);
   static const EdgeInsets largeHorizontal = EdgeInsets.symmetric(horizontal: large);
