@@ -23,7 +23,7 @@
   "financialHealth": "Financial Health",
   "description": "Description",
   "savedToFavorites": "Saved to Favorites",
-  "removeFromFavorites": "Remove from Favorites",
+  "removeFromFavorites": "Removed from Favorites",
   "netIncomeMargin": "Net Income Margin",
   "formula": "Formula",
   "netIncomeHint": "A positive value indicates profitability and a negative indicates a loss.",

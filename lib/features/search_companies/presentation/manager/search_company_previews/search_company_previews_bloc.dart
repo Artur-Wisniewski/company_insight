@@ -25,11 +25,8 @@ class SearchCompanyOverviewsBloc extends Bloc<SearchCompanyOverviewsEvent, Searc
   final SearchCompanyPreviewsUseCase _searchCompanyOverviewsUseCase;
 
   void onSearchCompanyOverviews(SearchCompanyOverviews event, Emitter<SearchCompanyOverviewsState> emit) async {
-    if (state is SearchCompanyOverviewsLoading || state is SearchCompanyOverviewsLoadingMore) return;
-    if(event.query.isEmpty) {
-      emit(const SearchCompanyOverviewsInitial());
-      return;
-    }
+    if (state is SearchCompanyOverviewsLoading || state is SearchCompanyPreviewsLoadingMore) return;
+
     emit(const SearchCompanyOverviewsLoading());
     final dataState = await _searchCompanyOverviewsUseCase(query: event.query, limit: itemsPerPage);
     if (dataState is DataSuccess) {
@@ -38,7 +35,7 @@ class SearchCompanyOverviewsBloc extends Bloc<SearchCompanyOverviewsEvent, Searc
       } else {
         bool hasReachedMax = dataState.data!.length < itemsPerPage;
         emit(SearchCompanyOverviewsDone(
-          companyOverviews: dataState.data!,
+          companyPreviews: dataState.data!,
           page: 1,
           hasReachedMax: hasReachedMax,
           query: event.query,
@@ -52,11 +49,11 @@ class SearchCompanyOverviewsBloc extends Bloc<SearchCompanyOverviewsEvent, Searc
 
   void onSearchMoreCompanyOverviews(
       SearchCompanyOverviewsLoadMore event, Emitter<SearchCompanyOverviewsState> emit) async {
-    if (state is SearchCompanyOverviewsLoading || state is SearchCompanyOverviewsLoadingMore) return;
+    if (state is SearchCompanyOverviewsLoading || state is SearchCompanyPreviewsLoadingMore) return;
     if (state is! SearchCompanyOverviewsDone) return;
     if ((state as SearchCompanyOverviewsDone).hasReachedMax) return;
-    emit(SearchCompanyOverviewsLoadingMore.fromDone(state as SearchCompanyOverviewsDone));
-    final newState = state as SearchCompanyOverviewsLoadingMore;
+    emit(SearchCompanyPreviewsLoadingMore.fromDone(state as SearchCompanyOverviewsDone));
+    final newState = state as SearchCompanyPreviewsLoadingMore;
     final newPage = newState.page + 1;
     final dataState = await _searchCompanyOverviewsUseCase(
       query: state.query ?? '',
@@ -68,7 +65,7 @@ class SearchCompanyOverviewsBloc extends Bloc<SearchCompanyOverviewsEvent, Searc
       } else {
         bool hasReachedMax = dataState.data!.length < newPage * itemsPerPage;
         emit(SearchCompanyOverviewsDone(
-          companyOverviews: dataState.data!,
+          companyPreviews: dataState.data!,
           page: newPage,
           hasReachedMax: hasReachedMax,
           query: state.query,

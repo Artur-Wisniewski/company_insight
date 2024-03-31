@@ -11,7 +11,7 @@
 import 'package:company_insight_app/features/search_companies/data/data_sources/local/app_database.dart'
     as _i3;
 import 'package:company_insight_app/features/search_companies/data/data_sources/local/app_database_injection.dart'
-    as _i13;
+    as _i14;
 import 'package:company_insight_app/features/search_companies/data/data_sources/remote/companies_list_data_source.dart'
     as _i5;
 import 'package:company_insight_app/features/search_companies/data/repositories/companies_repository_impl.dart'
@@ -26,9 +26,11 @@ import 'package:company_insight_app/features/search_companies/domain/use_cases/s
     as _i10;
 import 'package:company_insight_app/features/search_companies/domain/use_cases/search_company_previews.dart'
     as _i11;
-import 'package:company_insight_app/features/search_companies/presentation/manager/search_company_previews/search_company_previews_bloc.dart'
+import 'package:company_insight_app/features/search_companies/presentation/manager/favorite_companies/favorite_companies_cubit.dart'
     as _i12;
-import 'package:company_insight_app/setup/dio.dart' as _i14;
+import 'package:company_insight_app/features/search_companies/presentation/manager/search_company_previews/search_company_previews_bloc.dart'
+    as _i13;
+import 'package:company_insight_app/setup/dio.dart' as _i15;
 import 'package:dio/dio.dart' as _i4;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
@@ -70,13 +72,19 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i10.SaveCompanyPreviewUseCase(gh<_i6.CompanyRepository>()));
     gh.lazySingleton<_i11.SearchCompanyPreviewsUseCase>(
         () => _i11.SearchCompanyPreviewsUseCase(gh<_i6.CompanyRepository>()));
-    gh.lazySingleton<_i12.SearchCompanyOverviewsBloc>(() =>
-        _i12.SearchCompanyOverviewsBloc(
+    gh.lazySingleton<_i12.FavoriteCompaniesCubit>(
+        () => _i12.FavoriteCompaniesCubit(
+              gh<_i8.GetSavedCompanyPreviewsUseCase>(),
+              gh<_i9.RemoveCompanyOverviewFromSavedUseCase>(),
+              gh<_i10.SaveCompanyPreviewUseCase>(),
+            ));
+    gh.lazySingleton<_i13.SearchCompanyOverviewsBloc>(() =>
+        _i13.SearchCompanyOverviewsBloc(
             gh<_i11.SearchCompanyPreviewsUseCase>()));
     return this;
   }
 }
 
-class _$DatabaseModule extends _i13.DatabaseModule {}
+class _$DatabaseModule extends _i14.DatabaseModule {}
 
-class _$DioModule extends _i14.DioModule {}
+class _$DioModule extends _i15.DioModule {}

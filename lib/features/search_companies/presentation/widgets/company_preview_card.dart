@@ -50,15 +50,17 @@ class CompanyPreviewCard extends StatelessWidget {
                 Text(name, style: Theme.of(context).textTheme.titleLarge),
                 Gaps.small,
                 Text(symbol,
-                    style:
-                        Theme.of(context).textTheme.titleSmall!.copyWith(color: Theme.of(context).unselectedWidgetColor)),
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleSmall!
+                        .copyWith(color: Theme.of(context).unselectedWidgetColor)),
               ],
             ),
           ),
           Gaps.medium,
           IconButton(
             padding: EdgeInsets.zero,
-            onPressed: () {},
+            onPressed: onBookMarkButtonPressed,
             icon: Container(
               padding: Paddings.smallAll,
               decoration: BoxDecoration(

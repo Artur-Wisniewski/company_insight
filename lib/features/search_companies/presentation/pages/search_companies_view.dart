@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 
+import '../manager/favorite_companies/favorite_companies_cubit.dart';
 import '../widgets/company_previews_list.dart';
 import '../widgets/loading_previews_list.dart';
 
@@ -22,9 +23,18 @@ class _SearchCompaniesViewState extends State<SearchCompaniesView> with TickerPr
   late final AnimationController animationController = AnimationController(vsync: this);
 
   @override
+  void initState() {
+    getIt<FavoriteCompaniesCubit>().getCompanies();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return BlocProvider.value(
-      value: getIt<SearchCompanyOverviewsBloc>(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider.value(value: getIt<SearchCompanyOverviewsBloc>()),
+        BlocProvider.value(value: getIt<FavoriteCompaniesCubit>()),
+      ],
       child: KeyboardDismissOnTap(
         child: Scaffold(
           extendBodyBehindAppBar: true,

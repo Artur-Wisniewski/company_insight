@@ -39,31 +39,31 @@ class SearchCompanyOverviewsDone extends SearchCompanyOverviewsState {
   const SearchCompanyOverviewsDone({
     super.query,
     required this.page,
-    required this.companyOverviews,
+    required this.companyPreviews,
     required this.hasReachedMax,
   });
 
-  final List<CompanyPreviewEntity> companyOverviews;
+  final List<CompanyPreviewEntity> companyPreviews;
   final int page;
   final bool hasReachedMax;
 
   @override
-  List<Object?> get props => [page, companyOverviews, query, hasReachedMax];
+  List<Object?> get props => [page, companyPreviews, query, hasReachedMax];
 }
 
 @immutable
-class SearchCompanyOverviewsLoadingMore extends SearchCompanyOverviewsDone {
-  const SearchCompanyOverviewsLoadingMore({
+class SearchCompanyPreviewsLoadingMore extends SearchCompanyOverviewsDone {
+  const SearchCompanyPreviewsLoadingMore({
     super.query,
     required super.page,
-    required super.companyOverviews,
+    required super.companyPreviews,
     required super.hasReachedMax,
   });
 
-  factory SearchCompanyOverviewsLoadingMore.fromDone(SearchCompanyOverviewsDone done) {
-    return SearchCompanyOverviewsLoadingMore(
+  factory SearchCompanyPreviewsLoadingMore.fromDone(SearchCompanyOverviewsDone done) {
+    return SearchCompanyPreviewsLoadingMore(
       page: done.page,
-      companyOverviews: done.companyOverviews,
+      companyPreviews: done.companyPreviews,
       query: done.query,
       hasReachedMax: done.hasReachedMax,
     );

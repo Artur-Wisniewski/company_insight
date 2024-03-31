@@ -1,3 +1,4 @@
+import 'package:company_insight_app/core/styles/gaps.dart';
 import 'package:company_insight_app/core/styles/paddings.dart';
 import 'package:company_insight_app/features/search_companies/presentation/widgets/loading_preview_card.dart';
 import 'package:flutter/material.dart';
@@ -7,14 +8,11 @@ class LoadingPreviewsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: List.generate(
-        20,
-        (index) => const Padding(
-          padding: Paddings.largeAllExceptTop,
-          child: LoadingPreviewCard(),
-        ),
-      ),
+    return ListView.separated(
+      itemBuilder: (BuildContext context, int index) => const LoadingPreviewCard(),
+      separatorBuilder: (BuildContext context, int index) => Gaps.medium,
+      itemCount: 20,
+      padding: Paddings.largeAllExceptTop,
     );
   }
 }

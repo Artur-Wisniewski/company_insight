@@ -73,7 +73,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Net Income Margin"),
         "nothingFound": MessageLookupByLibrary.simpleMessage("Nothing found"),
         "removeFromFavorites":
-            MessageLookupByLibrary.simpleMessage("Remove from Favorites"),
+            MessageLookupByLibrary.simpleMessage("Removed from Favorites"),
         "savedToFavorites":
             MessageLookupByLibrary.simpleMessage("Saved to Favorites"),
         "smallCap": MessageLookupByLibrary.simpleMessage("Small-Cap"),

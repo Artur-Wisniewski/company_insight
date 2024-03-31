@@ -290,10 +290,10 @@ class L10n {
     );
   }
 
-  /// `Remove from Favorites`
+  /// `Removed from Favorites`
   String get removeFromFavorites {
     return Intl.message(
-      'Remove from Favorites',
+      'Removed from Favorites',
       name: 'removeFromFavorites',
       desc: '',
       args: [],

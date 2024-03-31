@@ -1,4 +1,6 @@
-class CompanyPreviewEntity {
+import 'package:equatable/equatable.dart';
+
+class CompanyPreviewEntity extends Equatable {
   const CompanyPreviewEntity({
     required this.symbol,
     required this.name,
@@ -12,4 +14,7 @@ class CompanyPreviewEntity {
   final String? currency;
   final String? stockExchange;
   final String? exchangeShortName;
+
+  @override
+  List<Object?> get props => [symbol, name, currency, stockExchange, exchangeShortName];
 }
