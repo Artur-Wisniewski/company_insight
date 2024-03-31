@@ -15,6 +15,7 @@ class AppSearchBar extends StatefulWidget {
     this.animationController,
     this.animationDuration = Durations.short4,
     this.animationDelay = Durations.short4,
+    this.onSearchChanged,
   });
 
   final bool isExpanded;
@@ -24,6 +25,7 @@ class AppSearchBar extends StatefulWidget {
   final AnimationController? animationController;
   final Duration animationDuration;
   final Duration animationDelay;
+  final Function(String)? onSearchChanged;
 
   @override
   State<AppSearchBar> createState() => _AppSearchBarState();
@@ -44,9 +46,7 @@ class _AppSearchBarState extends State<AppSearchBar> {
   }
 
   void onTap() {
-    //if (!widget.isExpanded) {
     widget.onPressedWhenShrinked?.call();
-    //}
   }
 
   @override
@@ -65,6 +65,8 @@ class _AppSearchBarState extends State<AppSearchBar> {
           Gaps.medium,
           Expanded(
             child: TextField(
+              onChanged: widget.onSearchChanged,
+              autofocus: true,
               onTap: onTap,
               readOnly: widget.isReadOnly,
               style: Theme.of(context).textTheme.bodyLarge!.copyWith(

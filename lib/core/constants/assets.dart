@@ -24,4 +24,5 @@ class SvgAssets {
   static const profileFill =
       AssetInfo(path: '$_imageDirectoryPath/profile_fill.svg', semanticsLabel: 'profile fill icon');
   static const trendingUp = AssetInfo(path: '$_imageDirectoryPath/trending_up.svg', semanticsLabel: 'trending up icon');
+  static const frown = AssetInfo(path: '$_imageDirectoryPath/frown.svg', semanticsLabel: 'frown icon');
 }

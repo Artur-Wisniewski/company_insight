@@ -13,7 +13,7 @@ class StartApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
+      providers: [ // TODO remove provider
         BlocProvider(create: (_) => BottomNavigationBarCubit()),
       ],
       child: AnnotatedRegion(

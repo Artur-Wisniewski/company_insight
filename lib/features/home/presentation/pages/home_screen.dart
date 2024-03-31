@@ -7,7 +7,6 @@ import 'package:company_insight_app/core/widgets/search_bar.dart';
 import 'package:company_insight_app/features/home/presentation/widgets/home_subtitle.dart';
 import 'package:company_insight_app/features/home/presentation/widgets/home_title.dart';
 import 'package:company_insight_app/setup/router.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';

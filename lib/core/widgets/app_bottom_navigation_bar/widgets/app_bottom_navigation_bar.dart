@@ -2,7 +2,7 @@ import 'package:company_insight_app/core/constants/assets.dart';
 import 'package:company_insight_app/core/styles/border_radii.dart';
 import 'package:company_insight_app/core/styles/paddings.dart';
 import 'package:company_insight_app/core/widgets/app_bottom_navigation_bar/manager/bottom_navigation_bar_cubit.dart';
-import 'package:company_insight_app/core/widgets/app_bottom_navigation_bar/widgets/animated_bottom_bar_icon.dart';
+import 'package:company_insight_app/core/widgets/app_animated_icon.dart';
 import 'package:company_insight_app/setup/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -63,7 +63,7 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> with Si
                 IconButton(
                   onPressed: () => _onHomePressed(context, state),
                   padding: Paddings.mediumAll,
-                  icon: AnimatedBottomBarIcon(
+                  icon: AppAnimatedIcon(
                     isSelected: state.currentItem == BottomBarItems.home,
                     outlineIcon: SvgAssets.homeOutline,
                     fillIcon: SvgAssets.homeFill,
@@ -78,7 +78,7 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> with Si
                       color: Theme.of(context).colorScheme.primary,
                       shape: BoxShape.circle,
                     ),
-                    child: AnimatedBottomBarIcon(
+                    child: AppAnimatedIcon(
                       isSelected: state.currentItem == BottomBarItems.favorites,
                       outlineIcon: SvgAssets.bookmarkOutline,
                       fillIcon: SvgAssets.bookmarkFill,
@@ -88,7 +88,7 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> with Si
                 IconButton(
                   onPressed: () {},
                   padding: Paddings.mediumAll,
-                  icon: AnimatedBottomBarIcon(
+                  icon: AppAnimatedIcon(
                     isSelected: state.currentItem == BottomBarItems.profile,
                     outlineIcon: SvgAssets.profileOutline,
                     fillIcon: SvgAssets.profileFill,

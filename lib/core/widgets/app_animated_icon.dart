@@ -2,8 +2,8 @@ import 'package:company_insight_app/core/constants/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class AnimatedBottomBarIcon extends StatefulWidget {
-  const AnimatedBottomBarIcon({
+class AppAnimatedIcon extends StatefulWidget {
+  const AppAnimatedIcon({
     super.key,
     required this.outlineIcon,
     required this.fillIcon,
@@ -21,10 +21,10 @@ class AnimatedBottomBarIcon extends StatefulWidget {
   final double size;
 
   @override
-  State<AnimatedBottomBarIcon> createState() => _AnimatedBottomBarIconState();
+  State<AppAnimatedIcon> createState() => _AppAnimatedIconState();
 }
 
-class _AnimatedBottomBarIconState extends State<AnimatedBottomBarIcon> {
+class _AppAnimatedIconState extends State<AppAnimatedIcon> {
   late bool isSelected;
 
   @override
@@ -34,7 +34,7 @@ class _AnimatedBottomBarIconState extends State<AnimatedBottomBarIcon> {
   }
 
   @override
-  void didUpdateWidget(covariant AnimatedBottomBarIcon oldWidget) {
+  void didUpdateWidget(covariant AppAnimatedIcon oldWidget) {
     if (oldWidget.isSelected != widget.isSelected) {
       setState(() {
         isSelected = widget.isSelected;

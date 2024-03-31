@@ -37,7 +37,9 @@
   "ceo": "CEO",
   "industry": "Industry",
   "exchange": "Exchange",
-  "CUSIP": "CUSIP",
+  "cusip": "CUSIP",
   "marketCapitalization": "Market Capitalization",
-  "marketSizeIndicator": "Market size indicator"
+  "marketSizeIndicator": "Market size indicator",
+  "somethingWentWrong": "Something went wrong",
+  "tryAgain": "Try again in a few moments"
 }

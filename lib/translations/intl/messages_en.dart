@@ -24,7 +24,6 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "CUSIP": MessageLookupByLibrary.simpleMessage("CUSIP"),
         "about": MessageLookupByLibrary.simpleMessage("About"),
         "capCategories": MessageLookupByLibrary.simpleMessage("Cap categories"),
         "ceo": MessageLookupByLibrary.simpleMessage("CEO"),
@@ -33,6 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Current_Ratio = Total_Current_Assets / Total_Current_Liabilities"),
         "currentRatioHint": MessageLookupByLibrary.simpleMessage(
             "A ratio above 1 suggest that the company has more assets than liabilities"),
+        "cusip": MessageLookupByLibrary.simpleMessage("CUSIP"),
         "debtToEquityRatio":
             MessageLookupByLibrary.simpleMessage("Debt to Equity Ratio"),
         "debtToEquityRatioFormula": MessageLookupByLibrary.simpleMessage(
@@ -79,12 +79,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "smallCap": MessageLookupByLibrary.simpleMessage("Small-Cap"),
         "smallCapExplanation": MessageLookupByLibrary.simpleMessage(
             "Market value between \$250 million and \$2 billion"),
+        "somethingWentWrong":
+            MessageLookupByLibrary.simpleMessage("Something went wrong"),
         "tapOnBookmarkHint": MessageLookupByLibrary.simpleMessage(
             "Tap on bookmark icon to check your saved companies"),
         "tapOnSaveHint": MessageLookupByLibrary.simpleMessage(
             "Tap on this icon to save company to favorites"),
         "tapOnSearchHint": MessageLookupByLibrary.simpleMessage(
             "Tap on search icon to find companies you are interested in"),
+        "tryAgain":
+            MessageLookupByLibrary.simpleMessage("Try again in a few moments"),
         "trySomethingElse":
             MessageLookupByLibrary.simpleMessage("Try something else"),
         "typeHint": MessageLookupByLibrary.simpleMessage(

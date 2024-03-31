@@ -431,10 +431,10 @@ class L10n {
   }
 
   /// `CUSIP`
-  String get CUSIP {
+  String get cusip {
     return Intl.message(
       'CUSIP',
-      name: 'CUSIP',
+      name: 'cusip',
       desc: '',
       args: [],
     );
@@ -455,6 +455,26 @@ class L10n {
     return Intl.message(
       'Market size indicator',
       name: 'marketSizeIndicator',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Something went wrong`
+  String get somethingWentWrong {
+    return Intl.message(
+      'Something went wrong',
+      name: 'somethingWentWrong',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Try again in a few moments`
+  String get tryAgain {
+    return Intl.message(
+      'Try again in a few moments',
+      name: 'tryAgain',
       desc: '',
       args: [],
     );
