@@ -32,7 +32,7 @@ class CompanyPreviewsList extends StatelessWidget {
             onBookMarkButtonPressed: () {},
             name: companyOverview.name ?? '',
             symbol: companyOverview.symbol ?? '',
-            isSelected: index % 2 == 0,
+            isSelected: false,
           );
         }
         return const LoadingPreviewCard();

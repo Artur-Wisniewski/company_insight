@@ -28,8 +28,8 @@ class CompanyPreviewCard extends StatelessWidget {
         borderRadius: BorderRadii.largeAll,
         gradient: LinearGradient(
           colors: [
-            const Color(0xFF2B3033).withOpacity(0.55),
-            const Color(0xFF202527).withOpacity(0.55),
+            const Color(0xFF2B3033).withOpacity(0.75),
+            const Color(0xFF202527).withOpacity(0.75),
           ],
         ),
         boxShadow: [

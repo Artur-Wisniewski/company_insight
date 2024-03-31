@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:company_insight_app/core/helpers/stream_transformers.dart';
 import 'package:company_insight_app/core/resources/data_source.dart';
 import 'package:company_insight_app/features/search_companies/domain/entities/company_overview.dart';
@@ -15,7 +16,8 @@ part 'search_company_previews_state.dart';
 class SearchCompanyOverviewsBloc extends Bloc<SearchCompanyOverviewsEvent, SearchCompanyOverviewsState> {
   SearchCompanyOverviewsBloc(this._searchCompanyOverviewsUseCase) : super(const SearchCompanyOverviewsInitial()) {
     on<SearchCompanyOverviews>(onSearchCompanyOverviews, transformer: debounce(Durations.long4));
-    on<SearchCompanyOverviewsLoadMore>(onSearchMoreCompanyOverviews);
+    on<SearchCompanyOverviewsLoadMore>(onSearchMoreCompanyOverviews, transformer: droppable());
+    on<ResetSearch>(onResetSearch, transformer: restartable());
   }
 
   static const int itemsPerPage = 100;
@@ -24,6 +26,10 @@ class SearchCompanyOverviewsBloc extends Bloc<SearchCompanyOverviewsEvent, Searc
 
   void onSearchCompanyOverviews(SearchCompanyOverviews event, Emitter<SearchCompanyOverviewsState> emit) async {
     if (state is SearchCompanyOverviewsLoading || state is SearchCompanyOverviewsLoadingMore) return;
+    if(event.query.isEmpty) {
+      emit(const SearchCompanyOverviewsInitial());
+      return;
+    }
     emit(const SearchCompanyOverviewsLoading());
     final dataState = await _searchCompanyOverviewsUseCase(query: event.query, limit: itemsPerPage);
     if (dataState is DataSuccess) {
@@ -72,5 +78,9 @@ class SearchCompanyOverviewsBloc extends Bloc<SearchCompanyOverviewsEvent, Searc
     if (dataState is DataFailed) {
       emit(SearchCompanyOverviewsFailure(exception: dataState.exception!));
     }
+  }
+
+  void onResetSearch(ResetSearch event, Emitter<SearchCompanyOverviewsState> emit) {
+    emit(const SearchCompanyOverviewsInitial());
   }
 }

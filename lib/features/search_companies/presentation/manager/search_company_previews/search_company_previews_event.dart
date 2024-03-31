@@ -22,3 +22,8 @@ class SearchCompanyOverviews extends SearchCompanyOverviewsEvent {
 class SearchCompanyOverviewsLoadMore extends SearchCompanyOverviewsEvent {
   const SearchCompanyOverviewsLoadMore();
 }
+
+@immutable
+class ResetSearch extends SearchCompanyOverviewsEvent {
+  const ResetSearch();
+}

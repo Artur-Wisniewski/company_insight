@@ -29,8 +29,9 @@ class _SearchCompaniesViewState extends State<SearchCompaniesView> with TickerPr
         child: Scaffold(
           extendBodyBehindAppBar: true,
           appBar: SearchAppBar(
-            onSearchChanged: (String query) =>
-                getIt<SearchCompanyOverviewsBloc>().add(SearchCompanyOverviews(query: query)),
+            onSearchChanged: (String query) {
+              getIt<SearchCompanyOverviewsBloc>().add(SearchCompanyOverviews(query: query));
+            },
           ),
           body: BackgroundBlur(
             corner: Corners.bottomRight,
