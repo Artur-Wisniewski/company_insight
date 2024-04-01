@@ -9,7 +9,7 @@ about a company's standing and operations
 ## How to start
 
 ```
-flutter run --dart-define API_KEY=$YourApiKeyTosite.financialmodelingprep.com
+flutter run --dart-define API_KEY=$YourApiKeyFromsite.financialmodelingprep.com
 ```
 
 You can get your API key from [here](https://financialmodelingprep.com/developer/docs/)
@@ -17,7 +17,7 @@ Personal recommendation is to run the app on the android device with `Impeller` 
 Flutter enables Impeller by default on iOS.
 
 ```
-flutter run --enable-impeller --dart-define API_KEY=$YourApiKeyTosite.financialmodelingprep.com
+flutter run --enable-impeller --dart-define API_KEY=$YourApiKeyFromsite.financialmodelingprep.com
 ```
 
 ## App Preview 🎬
