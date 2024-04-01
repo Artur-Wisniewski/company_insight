@@ -1,6 +1,9 @@
 import 'package:company_insight_app/core/resources/data_source.dart';
-import 'package:company_insight_app/features/search_companies/domain/entities/company_overview.dart';
-import 'package:company_insight_app/features/search_companies/domain/entities/company_profile.dart';
+
+import '../entities/balance_sheet_statement.dart';
+import '../entities/company_overview.dart';
+import '../entities/company_profile.dart';
+import '../entities/income_statement.dart';
 
 abstract interface class CompanyRepository {
   Future<DataState<List<CompanyPreviewEntity>>> getCompanyOverviewBy({required String query, int? limit});
@@ -12,4 +15,8 @@ abstract interface class CompanyRepository {
   Future<void> removeCompanyFromSaved({required CompanyPreviewEntity companyOverview});
 
   Future<DataState<CompanyProfileEntity>> getCompanyProfile({required String symbol});
+
+  Future<DataState<List<BalanceSheetStatementEntity>>> getBalanceSheetStatements({required String symbol});
+
+  Future<DataState<List<IncomeStatementEntity>>> getIncomeStatements({required String symbol});
 }

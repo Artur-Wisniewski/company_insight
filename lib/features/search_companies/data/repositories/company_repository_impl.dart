@@ -4,21 +4,25 @@ import 'package:injectable/injectable.dart';
 
 import '../../data/models/remote/company_preview_model.dart';
 import '../../data/models/remote/company_profile_model.dart';
+import '../../domain/entities/balance_sheet_statement.dart';
 import '../../domain/entities/company_overview.dart';
 import '../../domain/entities/company_profile.dart';
+import '../../domain/entities/income_statement.dart';
 import '../../domain/repositories/company_repository.dart';
 import '../data_sources/local/app_database.dart';
 import '../data_sources/remote/companies_list_remote_data_source.dart';
 import '../data_sources/remote/company_information_remote_data_source.dart';
 import '../models/local/company_preview_dto.dart';
+import '../models/remote/balance_sheet_statement_model.dart';
+import '../models/remote/income_statement_model.dart';
 
 @LazySingleton(as: CompanyRepository)
-class CompaniesRepositoryImpl implements CompanyRepository {
+class CompanyRepositoryImpl implements CompanyRepository {
   final CompanyPreviewsListRemoteDataSource searchCompaniesRemoteDataSource;
   final CompanyInformationRemoteDataSource companyInformationRemoteDataSource;
   final AppDatabase appDatabase;
 
-  CompaniesRepositoryImpl({
+  CompanyRepositoryImpl({
     required this.searchCompaniesRemoteDataSource,
     required this.companyInformationRemoteDataSource,
     required this.appDatabase,
@@ -57,6 +61,31 @@ class CompaniesRepositoryImpl implements CompanyRepository {
     try {
       final response = await companyInformationRemoteDataSource.getCompanyProfile(symbol: symbol);
       return DataSuccess<CompanyProfileEntity>(response.toDomain());
+    } on DioException catch (e) {
+      return DataFailed(e);
+    } on Exception catch (e) {
+      return DataFailed(e);
+    }
+  }
+
+  @override
+  Future<DataState<List<BalanceSheetStatementEntity>>> getBalanceSheetStatements({required String symbol}) async {
+    try {
+      final response = await companyInformationRemoteDataSource.getBalanceSheetStatement(symbol: symbol);
+      return DataSuccess<List<BalanceSheetStatementEntity>>(
+          response.map((BalanceSheetStatementModel e) => e.toDomain()).toList());
+    } on DioException catch (e) {
+      return DataFailed(e);
+    } on Exception catch (e) {
+      return DataFailed(e);
+    }
+  }
+
+  @override
+  Future<DataState<List<IncomeStatementEntity>>> getIncomeStatements({required String symbol}) async {
+    try {
+      final response = await companyInformationRemoteDataSource.getIncomeStatement(symbol: symbol);
+      return DataSuccess<List<IncomeStatementEntity>>(response.map((e) => e.toDomain()).toList());
     } on DioException catch (e) {
       return DataFailed(e);
     } on Exception catch (e) {

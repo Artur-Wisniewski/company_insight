@@ -2,6 +2,7 @@ import 'package:company_insight_app/core/styles/paddings.dart';
 import 'package:company_insight_app/core/widgets/backgrounds/blur_background.dart';
 import 'package:company_insight_app/core/widgets/material_design_indicator.dart';
 import 'package:company_insight_app/features/search_companies/domain/entities/company_overview.dart';
+import 'package:company_insight_app/features/search_companies/presentation/manager/company_finacial_health/company_financial_health_cubit.dart';
 import 'package:company_insight_app/features/search_companies/presentation/manager/company_profile/company_profile_cubit.dart';
 import 'package:company_insight_app/setup/injectable.dart';
 import 'package:company_insight_app/translations/l10n.dart';
@@ -24,9 +25,21 @@ class CompanyOverviewScreen extends StatefulWidget {
 
 class _CompanyOverviewScreenState extends State<CompanyOverviewScreen> {
   @override
+  void initState() {
+    CompanyFinancialHealthCubit(getIt.get(), getIt.get()).getFinancialHealth(widget.companyPreview.symbol!);
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => CompanyProfileCubit(getIt.get())..getCompanyProfile(widget.companyPreview.symbol!),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<CompanyFinancialHealthCubit>(
+            create: (context) => CompanyFinancialHealthCubit(getIt.get(), getIt.get())
+              ..getFinancialHealth(widget.companyPreview.symbol!)),
+        BlocProvider<CompanyProfileCubit>(
+            create: (context) => CompanyProfileCubit(getIt.get())..getCompanyProfile(widget.companyPreview.symbol!)),
+      ],
       child: Scaffold(
         appBar: const OverviewAppBar(),
         extendBodyBehindAppBar: true,
