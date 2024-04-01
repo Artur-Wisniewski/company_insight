@@ -1,0 +1,29 @@
+import 'package:company_insight_app/core/constants/status_codes.dart';
+import 'package:company_insight_app/core/exceptions/exceptions.dart';
+import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
+
+import '../../models/remote/company_profile_model.dart';
+
+abstract interface class CompanyInformationRemoteDataSource {
+  Future<CompanyProfileModel> getCompanyProfile({required String symbol});
+}
+
+@Singleton(as: CompanyInformationRemoteDataSource)
+class CompanyInformationRemoteDataSourceImpl implements CompanyInformationRemoteDataSource {
+  final Dio client;
+
+  const CompanyInformationRemoteDataSourceImpl(this.client);
+
+  @override
+  Future<CompanyProfileModel> getCompanyProfile({required String symbol}) async {
+    final response = await client.get('/api/v3/profile/$symbol');
+    if (response.statusCode == StatusCode.ok && response.data.isNotEmpty) {
+      return CompanyProfileModel.fromJson(response.data.first);
+    } else if (response.statusCode == StatusCode.notFound) {
+      throw NotFoundException(message: response.statusMessage);
+    } else {
+      throw ErrorException(message: response.statusMessage);
+    }
+  }
+}

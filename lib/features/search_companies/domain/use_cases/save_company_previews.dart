@@ -1,6 +1,6 @@
-import 'package:company_insight_app/features/search_companies/domain/entities/company_overview.dart';
 import 'package:injectable/injectable.dart';
 
+import '../entities/company_overview.dart';
 import '../repositories/company_repository.dart';
 
 @lazySingleton

@@ -1,8 +1,9 @@
 import 'package:company_insight_app/core/constants/status_codes.dart';
 import 'package:company_insight_app/core/exceptions/exceptions.dart';
-import 'package:company_insight_app/features/search_companies/data/models/remote/company_preview_model.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+
+import '../../models/remote/company_preview_model.dart';
 
 abstract interface class CompanyPreviewsListRemoteDataSource {
   Future<List<CompanyPreviewModel>> findCompanyOverviewBy({required String searchQuery, int? limit});
