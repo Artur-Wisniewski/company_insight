@@ -39,6 +39,7 @@ dependencies:
   shimmer: ^3.0.0
   rxdart: ^0.27.7
   another_flushbar: ^1.12.30
+  fl_chart: ^0.67.0
 
 dev_dependencies:
   flutter_test:

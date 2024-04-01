@@ -18,7 +18,9 @@ class Paddings {
   static const EdgeInsets largeHorizontalSmallVertical = EdgeInsets.symmetric(horizontal: large, vertical: small);
   static const EdgeInsets mediumTop = EdgeInsets.only(top: medium);
   static const EdgeInsets mediumRight = EdgeInsets.only(right: medium);
+  static const EdgeInsets largeRight = EdgeInsets.only(right: large);
   static const EdgeInsets extraLargeTop = EdgeInsets.only(top: extraLarge);
   static const EdgeInsets smallLeft = EdgeInsets.only(left: small);
   static const EdgeInsets mediumBottom = EdgeInsets.only(bottom: medium);
+  static const EdgeInsets mediumBottomMediumLeft = EdgeInsets.only(bottom: medium, left: medium);
 }

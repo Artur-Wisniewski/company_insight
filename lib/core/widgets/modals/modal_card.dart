@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:company_insight_app/core/styles/gaps.dart';
 import 'package:company_insight_app/core/styles/styles.dart';
 import 'package:company_insight_app/core/widgets/backgrounds/glass_background.dart';
@@ -25,7 +27,14 @@ class ModalCard extends StatelessWidget {
         child: Container(
           margin: Paddings.mediumAll,
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.primary,
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                const Color(0xFF5E50FF).withOpacity(0.85),
+                const Color(0xFF5E50FF),
+              ],
+            ),
             borderRadius: BorderRadii.mediumAll,
           ),
           child: Column(

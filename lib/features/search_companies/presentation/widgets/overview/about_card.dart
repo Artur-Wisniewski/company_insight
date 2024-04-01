@@ -1,3 +1,4 @@
+import 'package:company_insight_app/core/helpers/text_transformers.dart';
 import 'package:company_insight_app/core/styles/gaps.dart';
 import 'package:company_insight_app/core/styles/styles.dart';
 import 'package:company_insight_app/core/widgets/app_card.dart';
@@ -37,7 +38,7 @@ class AboutCard extends StatelessWidget {
           Gaps.medium,
           _buildRow(context, L10n.current.cusip, cusip),
           Gaps.medium,
-          _buildRow(context, L10n.current.marketCapitalization, marketCapShort),
+          _buildRow(context, L10n.current.marketCapitalization, reduceTextValue(marketCap?.toDouble() ?? 0)),
           Gaps.large,
           _buildMarketSizeIndicator(context),
         ],
@@ -119,22 +120,6 @@ class AboutCard extends StatelessWidget {
         return L10n.current.smallCap;
       default:
         return L10n.current.microCap;
-    }
-  }
-
-  String get marketCapShort {
-    final marketCapitalization = (marketCap ?? 0);
-    switch (marketCapitalization) {
-      case > 1000000000000:
-        return '${(marketCapitalization / 1000000000000).toStringAsFixed(2)}T';
-      case > 1000000000:
-        return '${(marketCapitalization / 1000000000).toStringAsFixed(2)}B';
-      case > 1000000:
-        return '${(marketCapitalization / 1000000).toStringAsFixed(2)}M';
-      case > 1000:
-        return '${(marketCapitalization / 1000).toStringAsFixed(2)}K';
-      default:
-        return marketCap.toString();
     }
   }
 }
