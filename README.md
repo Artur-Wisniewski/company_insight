@@ -6,6 +6,17 @@ company. This app aims to provide valuable information to users, including finan
 market presence, enabling them to make informed decisions or simply satisfy their curiosity
 about a company's standing and operations
 
+## How to start
+
+```
+flutter run --dart-define API_KEY=$YourApiKeyTosite.financialmodelingprep.com
+```
+You can get your API key from [here](https://financialmodelingprep.com/developer/docs/)
+Personal recommendation is to run the app on the android device with `Impeller` engine turned on.
+Flutter enables Impeller by default on iOS.
+```
+flutter run --enable-impeller --dart-define API_KEY=$YourApiKeyTosite.financialmodelingprep.com
+```
 ## App Preview 🎬
 
 //TODO Video here
