@@ -28,19 +28,10 @@ flutter run --enable-impeller --dart-define API_KEY=$YourApiKeyTosite.financialm
 
 [Figma Invitation](https://www.figma.com/file/KByBJJhCMzdsvbLa8cuOwI/Untitled?type=design&node-id=0%3A1&mode=design&t=g4tJmtDAfOroKqz4-1)
 
-## Technologies 🛠
-
-
-| Description      | Link                                                                                                                             |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| Architecture     | [Reference Architecture](https://resocoder.com/2019/08/27/flutter-tdd-clean-architecture-course-1-explanation-project-structure) |
-| State Management | [Bloc](https://pub.dev/packages/bloc)                                                                                            |
-
 ## Project Structure 📁
 
 ```
-
-|	      |     |__ 📁entities📁assets // icons, fonts, l10n translations
+📁assets // icons, fonts, l10n translations
 |  
 |
 📁lib
