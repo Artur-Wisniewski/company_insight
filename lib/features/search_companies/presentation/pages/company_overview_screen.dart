@@ -1,5 +1,13 @@
+import 'package:company_insight_app/core/styles/paddings.dart';
+import 'package:company_insight_app/core/widgets/backgrounds/blur_background.dart';
+import 'package:company_insight_app/core/widgets/material_design_indicator.dart';
 import 'package:company_insight_app/features/search_companies/domain/entities/company_overview.dart';
+import 'package:company_insight_app/translations/l10n.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../widgets/overview/about_tab_view.dart';
+import '../widgets/overview/overview_app_bar.dart';
 
 class CompanyOverviewScreen extends StatefulWidget {
   const CompanyOverviewScreen({super.key, required this.companyPreview});
@@ -14,8 +22,48 @@ class _CompanyOverviewScreenState extends State<CompanyOverviewScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text('Company Overview Screen'),
+      appBar: const OverviewAppBar(
+        name: 'Apple Inc.',
+        symbol: 'AAPL',
+        imageUrl: 'https://financialmodelingprep.com/image-stock/AAPL.png',
+      ),
+      extendBodyBehindAppBar: true,
+      body: BackgroundBlur(
+        corner: Corners.topLeft,
+        child: SafeArea(
+          child: DefaultTabController(
+            length: 2,
+            child: Column(
+              children: [
+                TabBar(
+                  padding: Paddings.smallAll,
+                  dividerColor: Colors.transparent,
+                  labelStyle: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                        color: Theme.of(context).colorScheme.secondary,
+                        fontWeight: FontWeight.w600,
+                      ),
+                  labelColor: Theme.of(context).colorScheme.secondary,
+                  unselectedLabelColor: Theme.of(context).unselectedWidgetColor,
+                  indicatorSize: TabBarIndicatorSize.label,
+                  indicator: MaterialDesignIndicator(
+                    indicatorHeight: 4,
+                    indicatorColor: Theme.of(context).colorScheme.secondary,
+                  ),
+                  tabs: [
+                    Tab(text: L10n.current.about),
+                    Tab(text: L10n.current.health),
+                  ],
+                ),
+                Expanded(
+                  child: TabBarView(children: [
+                    AboutTabView(),
+                    Center(child: Text('Health')),
+                  ]),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }

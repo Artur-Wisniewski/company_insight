@@ -8,9 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../manager/favorite_companies/favorite_companies_cubit.dart';
-import '../manager/search_company_previews/search_company_previews_bloc.dart';
-import 'company_preview_card.dart';
+import '../../manager/favorite_companies/favorite_companies_cubit.dart';
+import '../../manager/search_company_previews/search_company_previews_bloc.dart';
+import '../company_preview_card.dart';
 
 class CompanyPreviewsList extends StatelessWidget {
   const CompanyPreviewsList({super.key, required this.state});

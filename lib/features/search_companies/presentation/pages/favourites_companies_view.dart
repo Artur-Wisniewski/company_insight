@@ -1,10 +1,10 @@
 import 'package:company_insight_app/core/styles/gaps.dart';
 import 'package:company_insight_app/core/styles/paddings.dart';
 import 'package:company_insight_app/core/widgets/app_bottom_navigation_bar/manager/bottom_navigation_bar_cubit.dart';
-import 'package:company_insight_app/core/widgets/background.dart';
+import 'package:company_insight_app/core/widgets/backgrounds/blur_background.dart';
 import 'package:company_insight_app/features/search_companies/presentation/manager/favorite_companies/favorite_companies_cubit.dart';
-import 'package:company_insight_app/features/search_companies/presentation/widgets/favourite_title.dart';
-import 'package:company_insight_app/features/search_companies/presentation/widgets/favourites_companies_list.dart';
+import 'package:company_insight_app/features/search_companies/presentation/widgets/favourites/favourite_title.dart';
+import 'package:company_insight_app/features/search_companies/presentation/widgets/favourites/favourites_companies_list.dart';
 import 'package:company_insight_app/setup/injectable.dart';
 import 'package:company_insight_app/setup/router.dart';
 import 'package:flutter/material.dart';

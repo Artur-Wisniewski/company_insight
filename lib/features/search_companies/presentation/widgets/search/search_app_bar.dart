@@ -1,6 +1,6 @@
 import 'package:company_insight_app/core/styles/paddings.dart';
 import 'package:company_insight_app/core/widgets/app_back_button.dart';
-import 'package:company_insight_app/core/widgets/search_bar.dart';
+import 'package:company_insight_app/core/widgets/search_bars.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

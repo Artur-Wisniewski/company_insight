@@ -260,11 +260,11 @@ class L10n {
     );
   }
 
-  /// `Financial Health`
-  String get financialHealth {
+  /// `Health`
+  String get health {
     return Intl.message(
-      'Financial Health',
-      name: 'financialHealth',
+      'Health',
+      name: 'health',
       desc: '',
       args: [],
     );

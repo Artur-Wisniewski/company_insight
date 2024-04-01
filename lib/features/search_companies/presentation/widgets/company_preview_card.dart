@@ -1,9 +1,9 @@
 import 'package:company_insight_app/core/constants/assets.dart';
-import 'package:company_insight_app/core/styles/border_radii.dart';
 import 'package:company_insight_app/core/styles/box_shadows.dart';
 import 'package:company_insight_app/core/styles/gaps.dart';
 import 'package:company_insight_app/core/styles/paddings.dart';
 import 'package:company_insight_app/core/widgets/app_animated_icon.dart';
+import 'package:company_insight_app/core/widgets/app_card.dart';
 import 'package:flutter/material.dart';
 
 class CompanyPreviewCard extends StatelessWidget {
@@ -26,24 +26,7 @@ class CompanyPreviewCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Container(
-        padding: Paddings.mediumAll,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadii.largeAll,
-          gradient: LinearGradient(
-            colors: [
-              const Color(0xFF2B3033).withOpacity(0.75),
-              const Color(0xFF202527).withOpacity(0.75),
-            ],
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.1),
-              blurRadius: 8,
-              offset: const Offset(0, 2),
-            ),
-          ],
-        ),
+      child: AppCard(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

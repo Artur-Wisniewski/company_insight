@@ -42,11 +42,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "description": MessageLookupByLibrary.simpleMessage("Description"),
         "exchange": MessageLookupByLibrary.simpleMessage("Exchange"),
         "favorites": MessageLookupByLibrary.simpleMessage("Favorites"),
-        "financialHealth":
-            MessageLookupByLibrary.simpleMessage("Financial Health"),
         "findCompanyYouAreInterested": MessageLookupByLibrary.simpleMessage(
             "Find the company you are interested in"),
         "formula": MessageLookupByLibrary.simpleMessage("Formula"),
+        "health": MessageLookupByLibrary.simpleMessage("Health"),
         "helloUser": m0,
         "industry": MessageLookupByLibrary.simpleMessage("Industry"),
         "largeCap": MessageLookupByLibrary.simpleMessage("Large-Cap"),

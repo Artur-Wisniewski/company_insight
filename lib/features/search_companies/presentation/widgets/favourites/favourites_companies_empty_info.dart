@@ -3,19 +3,19 @@ import 'package:company_insight_app/translations/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import 'info_block.dart';
+import '../info_block.dart';
 
-class NothingFoundInfo extends StatelessWidget {
-  const NothingFoundInfo({super.key});
+class FavouritesCompaniesEmptyInfo extends StatelessWidget {
+  const FavouritesCompaniesEmptyInfo({super.key});
 
   @override
   Widget build(BuildContext context) {
     return InfoBlock(
-      title: L10n.current.nothingFound.toUpperCase(),
-      subtitle: L10n.current.trySomethingElse,
+      title: L10n.current.yourListIsEmpty.toUpperCase(),
+      subtitle: L10n.current.youCanFindCompaniesInHomeScreen,
       icon: SvgPicture.asset(
         SvgAssets.emptyBox.path,
-        semanticsLabel: SvgAssets.emptyBox.semanticsLabel,
+        semanticsLabel: SvgAssets.frown.semanticsLabel,
         width: 150,
         height: 150,
       ),

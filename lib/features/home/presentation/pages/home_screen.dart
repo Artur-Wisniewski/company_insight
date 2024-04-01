@@ -2,14 +2,14 @@ import 'package:company_insight_app/core/styles/gaps.dart';
 import 'package:company_insight_app/core/styles/paddings.dart';
 import 'package:company_insight_app/core/widgets/app_back_button.dart';
 import 'package:company_insight_app/core/widgets/app_bottom_navigation_bar/manager/bottom_navigation_bar_cubit.dart';
-import 'package:company_insight_app/core/widgets/background.dart';
-import 'package:company_insight_app/core/widgets/search_bar.dart';
+import 'package:company_insight_app/core/widgets/backgrounds/blur_background.dart';
+import 'package:company_insight_app/core/widgets/search_bars.dart';
 import 'package:company_insight_app/features/home/presentation/widgets/home_subtitle.dart';
 import 'package:company_insight_app/features/home/presentation/widgets/home_title.dart';
 import 'package:company_insight_app/setup/injectable.dart';
 import 'package:company_insight_app/setup/router.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
@@ -88,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       onPressedWhenShrinked: _onSearchPressed,
                       isExpanded: isExpanded.value,
                       rightShift: AppBackButton.size + AppBackButton.padding.horizontal + Paddings.smallLeft.horizontal,
-                    );
+                    ).animate().fadeIn(duration: Durations.short4).slideX(begin: 1, end: 0, duration: Durations.short4);
                   },
                 ),
               ),
