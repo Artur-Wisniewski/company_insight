@@ -87,6 +87,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Tap on this icon to save company to favorites"),
         "tapOnSearchHint": MessageLookupByLibrary.simpleMessage(
             "Tap on search icon to find companies you are interested in"),
+        "there": MessageLookupByLibrary.simpleMessage("There"),
         "tryAgain":
             MessageLookupByLibrary.simpleMessage("Try again in a few moments"),
         "trySomethingElse":

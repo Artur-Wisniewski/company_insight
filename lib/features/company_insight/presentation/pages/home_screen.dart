@@ -6,6 +6,7 @@ import 'package:company_insight_app/core/widgets/backgrounds/blur_background.dar
 import 'package:company_insight_app/core/widgets/search_bars.dart';
 import 'package:company_insight_app/setup/injectable.dart';
 import 'package:company_insight_app/setup/router.dart';
+import 'package:company_insight_app/translations/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:gap/gap.dart';
@@ -60,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       children: [
                         Flexible(
                           child: HomeSubtitle(
-                            name: 'Artur',
+                            name: L10n.current.there,
                             animationController: _animationController,
                             duration: Durations.short4,
                             delay: Duration.zero,
