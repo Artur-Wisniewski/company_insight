@@ -33,6 +33,7 @@ dependencies:
   json_annotation: ^4.8.1
   cached_network_image: ^3.3.0
   floor: ^1.4.2
+  shared_preferences: ^2.2.2
   flutter_svg: ^2.0.10+1
   flutter_keyboard_visibility: ^6.0.0
   flutter_animate: ^4.4.0

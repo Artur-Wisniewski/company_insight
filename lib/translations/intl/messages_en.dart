@@ -40,10 +40,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "debtToEquityRatioHint": MessageLookupByLibrary.simpleMessage(
             "A lower ratio means the company is less dependent on borrowed money"),
         "description": MessageLookupByLibrary.simpleMessage("Description"),
+        "designedToHelp": MessageLookupByLibrary.simpleMessage(
+            "is designed to help you find information about companies you are interested in."),
         "exchange": MessageLookupByLibrary.simpleMessage("Exchange"),
         "favorites": MessageLookupByLibrary.simpleMessage("Favorites"),
         "findCompanyYouAreInterested": MessageLookupByLibrary.simpleMessage(
             "Find the company you are interested in"),
+        "firstTimeInTheApp":
+            MessageLookupByLibrary.simpleMessage("First time in the app?"),
         "formula": MessageLookupByLibrary.simpleMessage("Formula"),
         "health": MessageLookupByLibrary.simpleMessage("Health"),
         "helloUser": m0,
@@ -51,6 +55,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "largeCap": MessageLookupByLibrary.simpleMessage("Large-Cap"),
         "largeCapExplanation": MessageLookupByLibrary.simpleMessage(
             "Market value between \$10 billion and \$200 billion"),
+        "letMeIntroduceForYouBriefPrompts": MessageLookupByLibrary.simpleMessage(
+            "Let me show you a short tutorial that appears on various screens"),
         "marketCapitalization":
             MessageLookupByLibrary.simpleMessage("Market Capitalization"),
         "marketSizeIndicator":
@@ -76,17 +82,20 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Removed from Favorites"),
         "savedToFavorites":
             MessageLookupByLibrary.simpleMessage("Saved to Favorites"),
+        "skip": MessageLookupByLibrary.simpleMessage("Skip"),
         "smallCap": MessageLookupByLibrary.simpleMessage("Small-Cap"),
         "smallCapExplanation": MessageLookupByLibrary.simpleMessage(
             "Market value between \$250 million and \$2 billion"),
         "somethingWentWrong":
             MessageLookupByLibrary.simpleMessage("Something went wrong"),
+        "startTutorial": MessageLookupByLibrary.simpleMessage("Start Tutorial"),
         "tapOnBookmarkHint": MessageLookupByLibrary.simpleMessage(
             "Tap on bookmark icon to check your saved companies"),
         "tapOnSaveHint": MessageLookupByLibrary.simpleMessage(
-            "Tap on this icon to save company to favorites"),
+            "Tap on this icon to save/remove company to/from favorites, you can find your favourites companies taping at purple button located in previous screen"),
         "tapOnSearchHint": MessageLookupByLibrary.simpleMessage(
             "Tap on search icon to find companies you are interested in"),
+        "theApp": MessageLookupByLibrary.simpleMessage("This application"),
         "there": MessageLookupByLibrary.simpleMessage("There"),
         "tryAgain":
             MessageLookupByLibrary.simpleMessage("Try again in a few moments"),
@@ -94,6 +103,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Try something else"),
         "typeHint": MessageLookupByLibrary.simpleMessage(
             "Type name or symbol of the company you are looking for"),
+        "wouldYouLikeToFindOutHow": MessageLookupByLibrary.simpleMessage(
+            "Would you like to find out how?"),
         "youCanFindCompaniesInHomeScreen": MessageLookupByLibrary.simpleMessage(
             "You can find and add companies to your list in home screen using search"),
         "yourListIsEmpty":

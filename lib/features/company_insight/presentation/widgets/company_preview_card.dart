@@ -4,7 +4,9 @@ import 'package:company_insight_app/core/styles/gaps.dart';
 import 'package:company_insight_app/core/styles/paddings.dart';
 import 'package:company_insight_app/core/widgets/app_animated_icon.dart';
 import 'package:company_insight_app/core/widgets/app_card.dart';
+import 'package:company_insight_app/translations/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:showcaseview/showcaseview.dart';
 
 class CompanyPreviewCard extends StatelessWidget {
   const CompanyPreviewCard({
@@ -14,8 +16,10 @@ class CompanyPreviewCard extends StatelessWidget {
     required this.symbol,
     required this.isSelected,
     required this.onTap,
+    this.globalKey,
   });
 
+  final GlobalKey? globalKey;
   final VoidCallback onBookMarkButtonPressed;
   final String name;
   final String symbol;
@@ -45,23 +49,33 @@ class CompanyPreviewCard extends StatelessWidget {
               ),
             ),
             Gaps.medium,
-            IconButton(
-              padding: EdgeInsets.zero,
-              onPressed: onBookMarkButtonPressed,
-              icon: Container(
-                padding: Paddings.smallAll,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Theme.of(context).colorScheme.surface,
-                  boxShadow: const [AppBoxShadows.primaryShadow],
+            Builder(builder: (context) {
+              final iconButton = IconButton(
+                padding: EdgeInsets.zero,
+                onPressed: onBookMarkButtonPressed,
+                icon: Container(
+                  padding: Paddings.smallAll,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Theme.of(context).colorScheme.surface,
+                    boxShadow: const [AppBoxShadows.primaryShadow],
+                  ),
+                  child: AppAnimatedIcon(
+                    outlineIcon: SvgAssets.bookmarkOutline,
+                    fillIcon: SvgAssets.bookmarkFill,
+                    isSelected: isSelected,
+                  ),
                 ),
-                child: AppAnimatedIcon(
-                  outlineIcon: SvgAssets.bookmarkOutline,
-                  fillIcon: SvgAssets.bookmarkFill,
-                  isSelected: isSelected,
-                ),
-              ),
-            ),
+              );
+              if (globalKey != null) {
+                return Showcase(
+                  key: globalKey!,
+                  description: L10n.current.tapOnSaveHint,
+                  child: iconButton,
+                );
+              }
+              return iconButton;
+            }),
           ],
         ),
       ),

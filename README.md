@@ -20,10 +20,6 @@ Flutter enables Impeller by default on iOS.
 flutter run --enable-impeller --dart-define API_KEY=$YourApiKeyFromsite.financialmodelingprep.com
 ```
 
-## App Preview 🎬
-
-//TODO Video here
-
 ## Design 🎨
 
 [Figma Invitation](https://www.figma.com/file/KByBJJhCMzdsvbLa8cuOwI/Untitled?type=design&node-id=0%3A1&mode=design&t=g4tJmtDAfOroKqz4-1)
@@ -43,6 +39,7 @@ flutter run --enable-impeller --dart-define API_KEY=$YourApiKeyFromsite.financia
    |	|__ 📁widgets // widgets that are used in multiple screens
    |	|__ 📁helpers // useful addons
    |	|__ 📁exceptions 
+   |	|__ 📁services // Shared services like SharedPreferences 
    |
    |__📁translations // Generated l10n translations
    |

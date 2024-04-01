@@ -11,11 +11,13 @@ class ModalCard extends StatelessWidget {
     required this.content,
     required this.title,
     required this.icon,
+    this.onClose,
   });
 
   final Widget content;
   final String title;
   final Widget icon;
+  final VoidCallback? onClose;
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +59,11 @@ class ModalCard extends StatelessWidget {
                     ),
                   ),
                   IconButton(
-                    onPressed: context.pop,
+                    onPressed: () {
+                      if (onClose != null) {
+                        onClose!();
+                      } else if (context.canPop()) context.pop();
+                    },
                     padding: Paddings.mediumAll,
                     icon: Icon(
                       Icons.close_rounded,

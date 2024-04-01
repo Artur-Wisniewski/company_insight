@@ -1,3 +1,4 @@
+import 'package:company_insight_app/core/widgets/modals/initial_modal.dart';
 import 'package:company_insight_app/translations/l10n.dart';
 import 'package:flutter/material.dart';
 
@@ -47,5 +48,10 @@ class Modals {
         formulaContent: L10n.current.debtToEquityRatioFormula,
       ),
     );
+  }
+
+  static Future<bool?> showInitialModal(BuildContext context) async {
+    return await showDialog(
+        context: context, useSafeArea: false, barrierDismissible: false, builder: (context) => const InitialModal());
   }
 }

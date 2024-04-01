@@ -130,10 +130,10 @@ class L10n {
     );
   }
 
-  /// `Tap on this icon to save company to favorites`
+  /// `Tap on this icon to save/remove company to/from favorites, you can find your favourites companies taping at purple button located in previous screen`
   String get tapOnSaveHint {
     return Intl.message(
-      'Tap on this icon to save company to favorites',
+      'Tap on this icon to save/remove company to/from favorites, you can find your favourites companies taping at purple button located in previous screen',
       name: 'tapOnSaveHint',
       desc: '',
       args: [],
@@ -515,6 +515,76 @@ class L10n {
     return Intl.message(
       'There',
       name: 'there',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `First time in the app?`
+  String get firstTimeInTheApp {
+    return Intl.message(
+      'First time in the app?',
+      name: 'firstTimeInTheApp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This application`
+  String get theApp {
+    return Intl.message(
+      'This application',
+      name: 'theApp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `is designed to help you find information about companies you are interested in.`
+  String get designedToHelp {
+    return Intl.message(
+      'is designed to help you find information about companies you are interested in.',
+      name: 'designedToHelp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Would you like to find out how?`
+  String get wouldYouLikeToFindOutHow {
+    return Intl.message(
+      'Would you like to find out how?',
+      name: 'wouldYouLikeToFindOutHow',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Let me show you a short tutorial that appears on various screens`
+  String get letMeIntroduceForYouBriefPrompts {
+    return Intl.message(
+      'Let me show you a short tutorial that appears on various screens',
+      name: 'letMeIntroduceForYouBriefPrompts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Skip`
+  String get skip {
+    return Intl.message(
+      'Skip',
+      name: 'skip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start Tutorial`
+  String get startTutorial {
+    return Intl.message(
+      'Start Tutorial',
+      name: 'startTutorial',
       desc: '',
       args: [],
     );

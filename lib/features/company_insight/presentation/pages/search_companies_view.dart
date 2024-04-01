@@ -3,6 +3,7 @@ import 'package:company_insight_app/setup/injectable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
+import 'package:showcaseview/showcaseview.dart';
 
 import '../manager/favorite_companies/favorite_companies_cubit.dart';
 import '../manager/search_company_previews/search_company_previews_bloc.dart';
@@ -28,45 +29,49 @@ class _SearchCompaniesViewState extends State<SearchCompaniesView> with TickerPr
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider.value(value: getIt<SearchCompanyOverviewsBloc>()),
-        BlocProvider.value(value: getIt<FavoriteCompaniesCubit>()),
-      ],
-      child: KeyboardDismissOnTap(
-        child: Scaffold(
-          extendBodyBehindAppBar: true,
-          appBar: SearchAppBar(
-            onSearchChanged: (String query) {
-              getIt<SearchCompanyOverviewsBloc>().add(SearchCompanyOverviews(query: query));
-            },
-          ),
-          body: BackgroundBlur(
-            corner: Corners.bottomRight,
-            child: SafeArea(
-              child: RefreshIndicator(
-                onRefresh: () async {
-                  final searchBloc = getIt<SearchCompanyOverviewsBloc>();
-                  final state = searchBloc.state;
-                  if (state.query?.isNotEmpty ?? false) {
-                    searchBloc.add(SearchCompanyOverviews(query: state.query!));
-                  }
+    return ShowCaseWidget(
+      builder: Builder(
+        builder: (_) => MultiBlocProvider(
+          providers: [
+            BlocProvider.value(value: getIt<SearchCompanyOverviewsBloc>()),
+            BlocProvider.value(value: getIt<FavoriteCompaniesCubit>()),
+          ],
+          child: KeyboardDismissOnTap(
+            child: Scaffold(
+              extendBodyBehindAppBar: true,
+              appBar: SearchAppBar(
+                onSearchChanged: (String query) {
+                  getIt<SearchCompanyOverviewsBloc>().add(SearchCompanyOverviews(query: query));
                 },
-                child: BlocBuilder<SearchCompanyOverviewsBloc, SearchCompanyOverviewsState>(
-                  builder: (context, state) {
-                    switch (state) {
-                      case SearchCompanyOverviewsInitial _:
-                        return const SizedBox();
-                      case SearchCompanyOverviewsLoading _:
-                        return const LoadingPreviewsList();
-                      case SearchCompanyOverviewsEmpty _:
-                        return const NothingFoundInfo();
-                      case SearchCompanyOverviewsFailure _:
-                        return const SomethingWentWrongInfoBlock();
-                      case SearchCompanyOverviewsDone state:
-                        return CompanyPreviewsList(state: state);
-                    }
-                  },
+              ),
+              body: BackgroundBlur(
+                corner: Corners.bottomRight,
+                child: SafeArea(
+                  child: RefreshIndicator(
+                    onRefresh: () async {
+                      final searchBloc = getIt<SearchCompanyOverviewsBloc>();
+                      final state = searchBloc.state;
+                      if (state.query?.isNotEmpty ?? false) {
+                        searchBloc.add(SearchCompanyOverviews(query: state.query!));
+                      }
+                    },
+                    child: BlocBuilder<SearchCompanyOverviewsBloc, SearchCompanyOverviewsState>(
+                      builder: (context, state) {
+                        switch (state) {
+                          case SearchCompanyOverviewsInitial _:
+                            return const SizedBox();
+                          case SearchCompanyOverviewsLoading _:
+                            return const LoadingPreviewsList();
+                          case SearchCompanyOverviewsEmpty _:
+                            return const NothingFoundInfo();
+                          case SearchCompanyOverviewsFailure _:
+                            return const SomethingWentWrongInfoBlock();
+                          case SearchCompanyOverviewsDone state:
+                            return CompanyPreviewsList(state: state);
+                        }
+                      },
+                    ),
+                  ),
                 ),
               ),
             ),

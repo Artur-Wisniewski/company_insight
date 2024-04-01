@@ -16,7 +16,7 @@ abstract class DioModule {
           queryParameters: <String, String>{'apikey': apiKey},
         ),
       )
-        ..interceptors.add(prettyDioLogger)
+        // ..interceptors.add(prettyDioLogger)
         ..interceptors.add(DioCacheInterceptor(options: cacheOptions));
 
   @Named('ApiKey') // if you need to pre resolve the value

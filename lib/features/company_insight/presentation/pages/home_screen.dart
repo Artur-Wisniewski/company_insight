@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
+import 'package:showcaseview/showcaseview.dart';
 
 import '../widgets/home/home_subtitle.dart';
 import '../widgets/home/home_title.dart';
@@ -44,57 +45,65 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: BackgroundBlur(
-        animationController: _animationController,
-        child: SafeArea(
-          child: Stack(
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+    return ShowCaseWidget(
+      builder: Builder(
+        builder: (context) => Scaffold(
+          body: BackgroundBlur(
+            animationController: _animationController,
+            child: SafeArea(
+              child: Stack(
                 children: [
-                  Padding(
-                    padding: Paddings.extraLargeTop,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Flexible(
-                          child: HomeSubtitle(
-                            name: L10n.current.there,
-                            animationController: _animationController,
-                            duration: Durations.short4,
-                            delay: Duration.zero,
-                          ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: Paddings.extraLargeTop,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Flexible(
+                              child: HomeSubtitle(
+                                name: L10n.current.there,
+                                animationController: _animationController,
+                                duration: Durations.short4,
+                                delay: Duration.zero,
+                              ),
+                            ),
+                            Gaps.large,
+                            const Gap(60),
+                          ],
                         ),
-                        Gaps.large,
-                        const Gap(60),
-                      ],
-                    ),
+                      ),
+                      Gaps.medium,
+                      HomeTitle(
+                        animationController: _animationController,
+                        duration: Durations.short4,
+                        delay: Durations.short2,
+                      ),
+                    ],
                   ),
-                  Gaps.medium,
-                  HomeTitle(
-                    animationController: _animationController,
-                    duration: Durations.short4,
-                    delay: Durations.short2,
+                  Positioned(
+                    top: Paddings.extraLarge,
+                    right: 0,
+                    child: AnimatedBuilder(
+                      animation: isExpanded,
+                      builder: (context, _) {
+                        return AppSearchBar(
+                          onPressedWhenShrinked: _onSearchPressed,
+                          isExpanded: isExpanded.value,
+                          rightShift:
+                              AppBackButton.size + AppBackButton.padding.horizontal + Paddings.smallLeft.horizontal,
+                        )
+                            .animate()
+                            .fadeIn(duration: Durations.short4)
+                            .slideX(begin: 1, end: 0, duration: Durations.short4);
+                      },
+                    ),
                   ),
                 ],
               ),
-              Positioned(
-                top: Paddings.extraLarge,
-                right: 0,
-                child: AnimatedBuilder(
-                  animation: isExpanded,
-                  builder: (context, _) {
-                    return AppSearchBar(
-                      onPressedWhenShrinked: _onSearchPressed,
-                      isExpanded: isExpanded.value,
-                      rightShift: AppBackButton.size + AppBackButton.padding.horizontal + Paddings.smallLeft.horizontal,
-                    ).animate().fadeIn(duration: Durations.short4).slideX(begin: 1, end: 0, duration: Durations.short4);
-                  },
-                ),
-              ),
-            ],
+            ),
           ),
         ),
       ),

@@ -7,7 +7,7 @@
   "favorites": "Favorites",
   "tapOnSearchHint": "Tap on search icon to find companies you are interested in",
   "tapOnBookmarkHint": "Tap on bookmark icon to check your saved companies",
-  "tapOnSaveHint": "Tap on this icon to save company to favorites",
+  "tapOnSaveHint": "Tap on this icon to save/remove company to/from favorites, you can find your favourites companies taping at purple button located in previous screen",
   "megaCap": "Mega-Cap",
   "megaCapExplanation": "Market value of $200 billion or more",
   "largeCap": "Large-Cap",
@@ -45,5 +45,12 @@
   "yourListIsEmpty": "Your list is empty",
   "youCanFindCompaniesInHomeScreen": "You can find and add companies to your list in home screen using search",
   "notAvailable": "N/A",
-  "there": "There"
+  "there": "There",
+  "firstTimeInTheApp": "First time in the app?",
+  "theApp": "This application",
+  "designedToHelp": "is designed to help you find information about companies you are interested in.",
+  "wouldYouLikeToFindOutHow": "Would you like to find out how?",
+  "letMeIntroduceForYouBriefPrompts": "Let me show you a short tutorial that appears on various screens",
+  "skip": "Skip",
+  "startTutorial": "Start Tutorial"
 }
