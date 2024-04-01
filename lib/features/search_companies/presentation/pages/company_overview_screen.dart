@@ -4,9 +4,9 @@ import 'package:company_insight_app/core/widgets/material_design_indicator.dart'
 import 'package:company_insight_app/features/search_companies/domain/entities/company_overview.dart';
 import 'package:company_insight_app/features/search_companies/presentation/manager/company_finacial_health/company_financial_health_cubit.dart';
 import 'package:company_insight_app/features/search_companies/presentation/manager/company_profile/company_profile_cubit.dart';
+import 'package:company_insight_app/features/search_companies/presentation/widgets/overview/toggle_favourites_action_button.dart';
 import 'package:company_insight_app/setup/injectable.dart';
 import 'package:company_insight_app/translations/l10n.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -43,6 +43,7 @@ class _CompanyOverviewScreenState extends State<CompanyOverviewScreen> {
       child: Scaffold(
         appBar: const OverviewAppBar(),
         extendBodyBehindAppBar: true,
+        floatingActionButton: ToggleFavouritesActionButton(companyPreview: widget.companyPreview),
         body: BackgroundBlur(
           corner: Corners.topLeft,
           child: SafeArea(
