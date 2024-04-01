@@ -2,7 +2,6 @@ import 'package:company_insight_app/core/styles/border_radii.dart';
 import 'package:company_insight_app/core/styles/gaps.dart';
 import 'package:company_insight_app/core/styles/paddings.dart';
 import 'package:company_insight_app/translations/l10n.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'modal_card.dart';

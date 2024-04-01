@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:company_insight_app/core/styles/gaps.dart';
 import 'package:company_insight_app/core/styles/styles.dart';
 import 'package:company_insight_app/core/widgets/backgrounds/glass_background.dart';

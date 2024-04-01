@@ -2,7 +2,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../domain/entities/balance_sheet_statement.dart';
 
-part 'balance_sheet_statement_model.freezed.dart';part 'balance_sheet_statement_model.g.dart';
+part 'balance_sheet_statement_model.freezed.dart';
+part 'balance_sheet_statement_model.g.dart';
 
 @freezed
 class BalanceSheetStatementModel with _$BalanceSheetStatementModel {
