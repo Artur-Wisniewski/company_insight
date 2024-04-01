@@ -43,5 +43,6 @@
   "somethingWentWrong": "Something went wrong",
   "tryAgain": "Try again in a few moments",
   "yourListIsEmpty": "Your list is empty",
-  "youCanFindCompaniesInHomeScreen": "You can find and add companies to your list in home screen using search"
+  "youCanFindCompaniesInHomeScreen": "You can find and add companies to your list in home screen using search",
+  "notAvailable": "N/A"
 }

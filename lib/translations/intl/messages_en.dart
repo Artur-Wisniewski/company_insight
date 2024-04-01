@@ -70,6 +70,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "A positive value indicates profitability and a negative indicates a loss."),
         "netIncomeMargin":
             MessageLookupByLibrary.simpleMessage("Net Income Margin"),
+        "notAvailable": MessageLookupByLibrary.simpleMessage("N/A"),
         "nothingFound": MessageLookupByLibrary.simpleMessage("Nothing found"),
         "removeFromFavorites":
             MessageLookupByLibrary.simpleMessage("Removed from Favorites"),

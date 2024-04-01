@@ -499,6 +499,16 @@ class L10n {
       args: [],
     );
   }
+
+  /// `N/A`
+  String get notAvailable {
+    return Intl.message(
+      'N/A',
+      name: 'notAvailable',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<L10n> {

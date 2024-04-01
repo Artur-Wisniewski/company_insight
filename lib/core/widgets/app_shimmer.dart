@@ -11,7 +11,7 @@ class AppShimmer extends StatelessWidget {
     return Shimmer.fromColors(
       baseColor: const Color(0xFF2B3033).withOpacity(0.8),
       highlightColor: const Color(0xFF202527).withOpacity(0.8),
-      child: child,
+      child: Material(child: child),
     );
   }
 }
