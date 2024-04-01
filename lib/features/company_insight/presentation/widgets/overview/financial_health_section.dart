@@ -74,7 +74,23 @@ class _FinancialHealthSectionState extends State<FinancialHealthSection> {
 
   LineChartData _buildLineChart() {
     return LineChartData(
-      lineTouchData: const LineTouchData(enabled: false),
+      lineTouchData: LineTouchData(
+        enabled: true,
+        touchTooltipData: LineTouchTooltipData(
+          getTooltipItems: (List<LineBarSpot> touchedSpots) {
+            return touchedSpots.map((LineBarSpot touchedSpot) {
+              final spot = touchedSpot;
+              return LineTooltipItem(
+                reduceTextValue(
+                  widget.valuesOverTime[widget.valuesOverTime.length - spot.x.toInt() - 1].value,
+                  fractionDigits: 3,
+                ),
+                Theme.of(context).textTheme.bodyLarge!.copyWith(color: Theme.of(context).colorScheme.onSurface),
+              );
+            }).toList();
+          },
+        ),
+      ),
       gridData: FlGridData(
         show: true,
         drawHorizontalLine: true,
@@ -118,7 +134,10 @@ class _FinancialHealthSectionState extends State<FinancialHealthSection> {
           sideTitles: SideTitles(showTitles: false),
         ),
       ),
-      borderData: FlBorderData(show: true, border: Border.all(color: Theme.of(context).colorScheme.surface)),
+      borderData: FlBorderData(
+        show: true,
+        border: Border.all(color: Theme.of(context).colorScheme.surface),
+      ),
       minX: getMinX(),
       maxX: widget.valuesOverTime.length.toDouble() - 1,
       minY: getMinY(),
