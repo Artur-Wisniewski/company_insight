@@ -24,7 +24,7 @@ class CompanyInformationRemoteDataSourceImpl implements CompanyInformationRemote
   @override
   Future<CompanyProfileModel> getCompanyProfile({required String symbol}) async {
     final response = await client.get('/api/v3/profile/$symbol');
-    if (response.statusCode == StatusCode.ok && response.data.isNotEmpty) {
+    if (response.statusCode == StatusCode.ok || response.statusCode == StatusCode.notModified) {
       return CompanyProfileModel.fromJson(response.data.first);
     } else if (response.statusCode == StatusCode.notFound) {
       throw NotFoundException(message: response.statusMessage);
@@ -36,7 +36,7 @@ class CompanyInformationRemoteDataSourceImpl implements CompanyInformationRemote
   @override
   Future<List<IncomeStatementModel>> getIncomeStatement({required String symbol}) async {
     final response = await client.get('/api/v3/income-statement/$symbol');
-    if (response.statusCode == StatusCode.ok && response.data.isNotEmpty) {
+    if (response.statusCode == StatusCode.ok || response.statusCode == StatusCode.notModified) {
       return [for (final item in response.data) IncomeStatementModel.fromJson(item)];
     } else if (response.statusCode == StatusCode.notFound) {
       throw NotFoundException(message: response.statusMessage);
@@ -48,7 +48,7 @@ class CompanyInformationRemoteDataSourceImpl implements CompanyInformationRemote
   @override
   Future<List<BalanceSheetStatementModel>> getBalanceSheetStatement({required String symbol}) async {
     final response = await client.get('/api/v3/balance-sheet-statement/$symbol');
-    if (response.statusCode == StatusCode.ok && response.data.isNotEmpty) {
+    if (response.statusCode == StatusCode.ok || response.statusCode == StatusCode.notModified) {
       return [for (final item in response.data) BalanceSheetStatementModel.fromJson(item)];
     } else if (response.statusCode == StatusCode.notFound) {
       throw NotFoundException(message: response.statusMessage);

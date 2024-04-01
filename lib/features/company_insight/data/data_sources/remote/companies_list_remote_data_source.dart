@@ -21,7 +21,7 @@ class CompaniesOverviewListRemoteDataSourceImpl implements CompanyPreviewsListRe
       'query': searchQuery,
       if (limit != null) 'limit': limit.toString(),
     });
-    if (response.statusCode == StatusCode.ok) {
+    if (response.statusCode == StatusCode.ok || response.statusCode == StatusCode.notModified) {
       return [for (final item in response.data) CompanyPreviewModel.fromJson(item)];
     } else if (response.statusCode == StatusCode.notFound) {
       throw NotFoundException(message: response.statusMessage);
