@@ -7,9 +7,13 @@ sealed class FavoriteCompaniesState extends Equatable {
   List<Object?> get props => [];
 }
 
-class FavoriteCompaniesInitial extends FavoriteCompaniesState {}
+class FavoriteCompaniesInitial extends FavoriteCompaniesState {
+  const FavoriteCompaniesInitial();
+}
 
-class FavoriteCompaniesLoading extends FavoriteCompaniesState {}
+class FavoriteCompaniesLoading extends FavoriteCompaniesState {
+  const FavoriteCompaniesLoading();
+}
 
 class FavoriteCompaniesDone extends FavoriteCompaniesState {
   const FavoriteCompaniesDone({required this.companies});

@@ -81,7 +81,7 @@ class _FinancialHealthSectionState extends State<FinancialHealthSection> {
             return touchedSpots.map((LineBarSpot touchedSpot) {
               final spot = touchedSpot;
               return LineTooltipItem(
-                reduceTextValue(
+                abbreviationValue(
                   widget.valuesOverTime[widget.valuesOverTime.length - spot.x.toInt() - 1].value,
                   fractionDigits: 3,
                 ),
@@ -245,13 +245,13 @@ class _FinancialHealthSectionState extends State<FinancialHealthSection> {
     final middleValue = getMinValue() + ((getMaxValue() - getMinValue()) / 2);
     switch (value.toInt()) {
       case 0:
-        text = reduceTextValue(getMinValue(), fractionDigits: 1);
+        text = abbreviationValue(getMinValue(), fractionDigits: 1);
         break;
       case 2:
-        text = reduceTextValue(middleValue, fractionDigits: 1);
+        text = abbreviationValue(middleValue, fractionDigits: 1);
         break;
       case 4:
-        text = reduceTextValue(getMaxValue(), fractionDigits: 1);
+        text = abbreviationValue(getMaxValue(), fractionDigits: 1);
         break;
       default:
         return Container();

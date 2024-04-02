@@ -15,14 +15,14 @@ class FavoriteCompaniesCubit extends Cubit<FavoriteCompaniesState> {
     this._getSavedCompanyPreviewsUseCase,
     this._removeCompanyOverviewFromSavedUseCase,
     this._saveCompanyPreviewUseCase,
-  ) : super(FavoriteCompaniesInitial());
+  ) : super(const FavoriteCompaniesInitial());
 
   final GetSavedCompanyPreviewsUseCase _getSavedCompanyPreviewsUseCase;
   final RemoveCompanyOverviewFromSavedUseCase _removeCompanyOverviewFromSavedUseCase;
   final SaveCompanyPreviewUseCase _saveCompanyPreviewUseCase;
 
   Future<void> getCompanies() async {
-    emit(FavoriteCompaniesLoading());
+    emit(const FavoriteCompaniesLoading());
     final savedCompanyPreviews = await _getSavedCompanyPreviewsUseCase.call();
     emit(FavoriteCompaniesDone(companies: savedCompanyPreviews.data!));
   }

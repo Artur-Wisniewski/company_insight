@@ -9,10 +9,12 @@ class BottomNavigationBarCubit extends Cubit<BottomBarNavigationState> {
   BottomNavigationBarCubit() : super(const BottomBarNavigationState(currentItem: BottomBarItems.home));
 
   void changeItem(BottomBarItems item) {
+    if (item == state.currentItem) return;
     emit(state.copyWith(currentItem: item));
   }
 
   void markNavigateOutsideShell(bool isNavigatedOutsideShell) {
+    if (isNavigatedOutsideShell == state.isNavigatedOutsideShell) return;
     emit(state.copyWith(isNavigatedOutsideShell: isNavigatedOutsideShell));
   }
 }

@@ -38,7 +38,7 @@ class AboutCard extends StatelessWidget {
           Gaps.medium,
           _buildRow(context, L10n.current.cusip, cusip),
           Gaps.medium,
-          _buildRow(context, L10n.current.marketCapitalization, reduceTextValue(marketCap?.toDouble() ?? 0)),
+          _buildRow(context, L10n.current.marketCapitalization, abbreviationValue(marketCap?.toDouble() ?? 0)),
           Gaps.large,
           _buildMarketSizeIndicator(context),
         ],

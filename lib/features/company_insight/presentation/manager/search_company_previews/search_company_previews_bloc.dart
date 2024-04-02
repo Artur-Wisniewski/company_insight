@@ -10,6 +10,7 @@ import '../../../domain/entities/company_overview.dart';
 import '../../../domain/use_cases/search_company_previews.dart';
 
 part 'search_company_previews_event.dart';
+
 part 'search_company_previews_state.dart';
 
 @lazySingleton
@@ -17,7 +18,6 @@ class SearchCompanyOverviewsBloc extends Bloc<SearchCompanyOverviewsEvent, Searc
   SearchCompanyOverviewsBloc(this._searchCompanyOverviewsUseCase) : super(const SearchCompanyOverviewsInitial()) {
     on<SearchCompanyOverviews>(onSearchCompanyOverviews, transformer: debounce(Durations.long4));
     on<SearchCompanyOverviewsLoadMore>(onSearchMoreCompanyOverviews, transformer: droppable());
-    on<ResetSearch>(onResetSearch, transformer: restartable());
   }
 
   static const int itemsPerPage = 100;
@@ -75,9 +75,5 @@ class SearchCompanyOverviewsBloc extends Bloc<SearchCompanyOverviewsEvent, Searc
     if (dataState is DataFailed) {
       emit(SearchCompanyOverviewsFailure(exception: dataState.exception!));
     }
-  }
-
-  void onResetSearch(ResetSearch event, Emitter<SearchCompanyOverviewsState> emit) {
-    emit(const SearchCompanyOverviewsInitial());
   }
 }

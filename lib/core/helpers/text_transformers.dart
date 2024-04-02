@@ -1,4 +1,5 @@
-String reduceTextValue(double value, {int fractionDigits = 2}) {
+String abbreviationValue(double value, {int fractionDigits = 2}) {
+  if (fractionDigits < 0) throw ArgumentError('fractionDigits must be greater or equal to 0');
   final absoluteValue = value.abs();
   String text;
   switch (absoluteValue) {
@@ -11,7 +12,7 @@ String reduceTextValue(double value, {int fractionDigits = 2}) {
     case > 1000:
       text = '${(absoluteValue / 1000).toStringAsFixed(fractionDigits)}K';
     default:
-      text = absoluteValue.toStringAsFixed(fractionDigits+1);
+      text = absoluteValue.toStringAsFixed(fractionDigits);
   }
   return value.isNegative ? '-$text' : text;
 }

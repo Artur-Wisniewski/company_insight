@@ -42,8 +42,8 @@ class CompanyFinancialHealthCubit extends Cubit<CompanyFinancialHealthState> {
       final List<DateValue> deptToEquityRatioOverTime = balanceSheetStatementsData
           .map((balanceSheetStatement) => DateValue(
               date: balanceSheetStatement.date!,
-              value:
-                  (balanceSheetStatement.totalLiabilities ?? 0) / (balanceSheetStatement.totalStockholdersEquity ?? 1)))
+              value: (balanceSheetStatement.totalCurrentLiabilities ?? 0) /
+                  (balanceSheetStatement.totalStockholdersEquity ?? 1)))
           .toList();
 
       emit(CompanyFinancialHealthDone(
@@ -51,7 +51,6 @@ class CompanyFinancialHealthCubit extends Cubit<CompanyFinancialHealthState> {
         currentRatiosOverTime: currentRatiosOverTime,
         debtToEquityRatiosOverTime: deptToEquityRatioOverTime,
       ));
-
     } else if (incomeStatements is DataFailed || balanceSheetStatements is DataFailed) {
       emit(const CompanyFinancialHealthFailure());
     }

@@ -2,43 +2,43 @@ import 'package:equatable/equatable.dart';
 
 class IncomeStatementEntity extends Equatable {
   const IncomeStatementEntity({
-    required this.date,
     required this.symbol,
     required this.revenue,
-    required this.costOfRevenue,
-    required this.grossProfit,
-    required this.operatingIncome,
-    required this.interestIncome,
-    required this.incomeTaxExpense,
     required this.netIncome,
-    required this.grossProfitRatio,
-    required this.operatingIncomeRatio,
-    required this.eps,
-    required this.epsdiluted,
-    required this.weightedAverageShsOut,
-    required this.weightedAverageShsOutDil,
-    required this.link,
-    required this.finalLink,
-    required this.reportedCurrency,
-    required this.cik,
-    required this.fillingDate,
-    required this.acceptedDate,
-    required this.calendarYear,
-    required this.period,
-    required this.researchAndDevelopmentExpenses,
-    required this.sellingAndMarketingExpenses,
-    required this.sellingGeneralAndAdministrativeExpenses,
-    required this.otherExpenses,
-    required this.operatingExpenses,
-    required this.costAndExpenses,
-    required this.interestExpense,
-    required this.depreciationAndAmortization,
-    required this.ebitda,
-    required this.ebitdaRatio,
-    required this.totalOtherIncomeExpensesNet,
-    required this.incomeBeforeTax,
-    required this.incomeBeforeTaxRatio,
-    required this.netIncomeRatio,
+    required this.date,
+    this.costOfRevenue,
+    this.grossProfit,
+    this.operatingIncome,
+    this.interestIncome,
+    this.incomeTaxExpense,
+    this.grossProfitRatio,
+    this.operatingIncomeRatio,
+    this.eps,
+    this.epsdiluted,
+    this.weightedAverageShsOut,
+    this.weightedAverageShsOutDil,
+    this.link,
+    this.finalLink,
+    this.reportedCurrency,
+    this.cik,
+    this.fillingDate,
+    this.acceptedDate,
+    this.calendarYear,
+    this.period,
+    this.researchAndDevelopmentExpenses,
+    this.sellingAndMarketingExpenses,
+    this.sellingGeneralAndAdministrativeExpenses,
+    this.otherExpenses,
+    this.operatingExpenses,
+    this.costAndExpenses,
+    this.interestExpense,
+    this.depreciationAndAmortization,
+    this.ebitda,
+    this.ebitdaRatio,
+    this.totalOtherIncomeExpensesNet,
+    this.incomeBeforeTax,
+    this.incomeBeforeTaxRatio,
+    this.netIncomeRatio,
   });
 
   final DateTime? date;
@@ -47,8 +47,8 @@ class IncomeStatementEntity extends Equatable {
   final String? cik;
   final DateTime? fillingDate;
   final DateTime? acceptedDate;
-  final String calendarYear;
-  final String period;
+  final String? calendarYear;
+  final String? period;
   final int? revenue;
   final int? costOfRevenue;
   final int? grossProfit;
